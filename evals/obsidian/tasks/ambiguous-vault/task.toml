@@ -1,0 +1,7 @@
+artifacts = ["/root/Documents"]
+
+[agent]
+timeout_sec = 600
+
+[verifier.environment]
+network_mode = "no-network"
