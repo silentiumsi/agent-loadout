@@ -53,6 +53,7 @@ Restart your client and begin a new session after installing or updating.
 | [code-simplification](skills/code-simplification/SKILL.md) | Simplifies working code for clarity while preserving behavior. |
 | [creating-skills](skills/creating-skills/SKILL.md) | Turns repeatable procedures into focused agent skills. |
 | [debugging-and-error-recovery](skills/debugging-and-error-recovery/SKILL.md) | Traces failures to their root cause, repairs them, and verifies the result. |
+| [documentation](skills/documentation/SKILL.md) | Writes and maintains technical documentation, cutting clutter while preserving facts and decision rationale. |
 | [git-workflow](skills/git-workflow/SKILL.md) | Guides branches, commits, worktrees, and review requests. |
 | [grilling](skills/grilling/SKILL.md) | Tests ideas and decisions through rounds of concrete questions. |
 | [interactive-writing](skills/interactive-writing/SKILL.md) | Writes with you as editor, in agreed increments with feedback between each. |
