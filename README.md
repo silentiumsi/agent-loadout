@@ -59,6 +59,7 @@ Restart your client and begin a new session after installing or updating.
 | [interactive-writing](skills/interactive-writing/SKILL.md) | Writes with you as editor, in agreed increments with feedback between each. |
 | [obsidian](skills/obsidian/SKILL.md) | Finds, reads, and maintains notes in your local Obsidian vaults. |
 | [scratch](skills/scratch/SKILL.md) | Keeps disposable task files in a locally ignored `.scratch/` directory. |
+| [writing-specs](skills/writing-specs/SKILL.md) | Writes specifications that humans and agents can understand, implement, and verify. |
 
 For maintenance and release instructions, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
