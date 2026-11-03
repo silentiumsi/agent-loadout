@@ -1,2 +1,8 @@
 .scratch/
 __pycache__/
+
+# Local credentials and environment overrides
+.env
+.env.*
+!.env.example
+!.env.*.example

@@ -1,91 +1,75 @@
-# Loadout
+![Loadout — white L monogram with a peach square and white wordmark on a dark background](assets/loadout-header.png)
 
-Reusable skills for Claude Code and Codex, distributed as the `loadout` plugin.
+[![Version](https://img.shields.io/github/v/tag/silentiumsi/agent-loadout?style=flat-square&label=version)](https://github.com/silentiumsi/agent-loadout/tags)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-compatible-D97757?style=flat-square)](#install-and-update)
+[![Codex](https://img.shields.io/badge/Codex-compatible-412991?style=flat-square)](#install-and-update)
 
-This repository is private while third-party attribution is completed. Keep it
-private until the README attribution has been reviewed and publication explicitly
-authorized. Original work is licensed under [MIT](LICENSE); third-party work
-retains its applicable license and attribution requirements.
+Loadout is a collection of opinionated skills for Claude Code and Codex. Install
+the `loadout` plugin to give your agent repeatable workflows for everyday work.
 
-## Skills
+## Install and update
 
-All skills and supporting files live in `skills/`.
+Run these commands in your terminal for the client you use.
 
-| Skill | Purpose |
-| --- | --- |
-| `code-review` | Review changes with independent reviewers across five dimensions. |
-| `creating-skills` | Write and maintain agent skills. |
-| `debugging-and-error-recovery` | Trace failures to their cause and verify the repair. |
-| `git-workflow` | Organize branches, save points, and review requests. |
-| `grilling` | Settle decisions through rounds of concrete questions. |
-| `interactive-writing` | Write artifacts in agreed increments with an editor. |
-| `obsidian` | Find and maintain notes in locally configured Obsidian vaults. |
-| `scratch` | Place disposable files in a locally ignored `.scratch/` directory. |
+### Claude Code
 
-These skills carry opinionated workflows. Obsidian operations require Obsidian
-and `jq` on Linux or macOS. Skills that delegate work require an agent host with
-subagent support. No MCP servers or API keys are required to install Loadout.
-
-## Install
-
-While this repository is private, Git access to `silentiumsi/agent-loadout` is
-required.
-
-Claude Code:
+Install:
 
 ```sh
 claude plugin marketplace add silentiumsi/agent-loadout
 claude plugin install loadout@loadout
 ```
 
-Codex:
-
-```sh
-codex plugin marketplace add silentiumsi/agent-loadout
-codex plugin add loadout@loadout
-```
-
-Restart the client and begin a new session after installation.
-
-## Update
-
-Claude Code:
+Update:
 
 ```sh
 claude plugin marketplace update loadout
 claude plugin update loadout@loadout
 ```
 
-Codex:
+### Codex
+
+Install:
+
+```sh
+codex plugin marketplace add silentiumsi/agent-loadout
+codex plugin add loadout@loadout
+```
+
+Update:
 
 ```sh
 codex plugin marketplace upgrade loadout
 codex plugin add loadout@loadout
 ```
 
-Restart the client after updating. If an old cached copy persists, remove and
-reinstall `loadout@loadout` using the same installation scope.
+Restart your client and begin a new session after installing or updating.
 
-## Maintain
+## Skills
 
-Edit skills here; this repository is their authoritative source. Keep `version`
-in `.claude-plugin/plugin.json` and `.codex-plugin/plugin.json` in sync, increment
-both when releasing a change, and commit and push the manifests with the skills.
-Tag releases as `v<version>` so consumer catalogs can pin a release.
+| Skill | What it does |
+| --- | --- |
+| [code-review](skills/code-review/SKILL.md) | Reviews changes with independent reviewers for correctness, readability, architecture, security, and performance. |
+| [creating-skills](skills/creating-skills/SKILL.md) | Turns repeatable procedures into focused agent skills. |
+| [debugging-and-error-recovery](skills/debugging-and-error-recovery/SKILL.md) | Traces failures to their root cause, repairs them, and verifies the result. |
+| [git-workflow](skills/git-workflow/SKILL.md) | Guides branches, commits, worktrees, and review requests. |
+| [grilling](skills/grilling/SKILL.md) | Tests ideas and decisions through rounds of concrete questions. |
+| [interactive-writing](skills/interactive-writing/SKILL.md) | Writes with you as editor, in agreed increments with feedback between each. |
+| [obsidian](skills/obsidian/SKILL.md) | Finds, reads, and maintains notes in your local Obsidian vaults. |
+| [scratch](skills/scratch/SKILL.md) | Keeps disposable task files in a locally ignored `.scratch/` directory. |
 
-Validate the Claude Code package and marketplace before releasing:
-
-```sh
-claude plugin validate .claude-plugin/plugin.json --strict
-claude plugin validate .claude-plugin/marketplace.json --strict
-```
-
-See the [Claude Code marketplace reference](https://code.claude.com/docs/en/plugin-marketplaces)
-and [OpenAI plugin packaging documentation](https://developers.openai.com/plugins/build/plugins)
-for the two package formats.
+For maintenance and release instructions, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Attribution
 
-Third-party attribution is pending a separate README review. This extraction
-preserves the existing skills and supporting files. Complete the source and
-license acknowledgments before making this repository public.
+Loadout is inspired by:
+
+- [Matt Pocock’s skills](https://github.com/mattpocock/skills).
+- [Addy Osmani’s agent-skills](https://github.com/addyosmani/agent-skills).
+- [Poteto’s pstack](https://github.com/cursor/plugins/tree/main/pstack).
+
+All three projects are MIT-licensed. Their copyright and license notices are
+preserved in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+The header and icon use a color palette inspired by
+[Vesper](https://github.com/raunofreiberg/vesper).
