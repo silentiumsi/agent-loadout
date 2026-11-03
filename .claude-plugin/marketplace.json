@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "loadout",
+  "description": "Reusable skills for AI coding agents.",
+  "owner": {
+    "name": "silentiumsi"
+  },
+  "plugins": [
+    {
+      "name": "loadout",
+      "source": "./",
+      "description": "Reusable skills for Claude Code and Codex."
+    }
+  ]
+}

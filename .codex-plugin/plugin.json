@@ -1,0 +1,17 @@
+{
+  "name": "loadout",
+  "version": "0.8.0",
+  "description": "Reusable skills for Claude Code and Codex.",
+  "author": {
+    "name": "silentiumsi"
+  },
+  "repository": "https://github.com/silentiumsi/agent-loadout",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Loadout",
+    "shortDescription": "Reusable skills for Claude Code and Codex",
+    "developerName": "silentiumsi",
+    "category": "Productivity"
+  },
+  "license": "MIT"
+}
