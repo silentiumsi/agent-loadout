@@ -5,6 +5,17 @@
 Edit skills here; this repository is their authoritative source. Installations
 follow `main`.
 
+Install the secret-scanning hooks after cloning. They need
+[lefthook](https://github.com/evilmartians/lefthook) and Go, which runs the
+version of [Betterleaks](https://github.com/betterleaks/betterleaks) pinned in
+`lefthook.yml`:
+
+```sh
+lefthook install
+```
+
+Commits are checked for staged secrets, and pushes scan the full history.
+
 Releases are manual:
 
 1. Update `version` in `.claude-plugin/plugin.json` and
