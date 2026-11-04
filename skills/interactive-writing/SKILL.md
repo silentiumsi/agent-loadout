@@ -20,13 +20,13 @@ Size each **increment** to the work. Whole-document drafting requires explicit a
 
 Write only the agreed **increment** directly into the artifact. Return a link and a brief review prompt, without repeating the prose in the conversation. If direct editing is unavailable, present the **increment** in the conversation for review.
 
-Stop after delivering each **increment** and wait for the editor. Apply feedback to the current **increment**, then stop again; revision does not authorize advancing. Acceptance alone does not authorize more writing either. A response such as “looks good, continue” accepts the current work and authorizes the next **increment** under the agreed approach.
+Stop after delivering each **increment** and wait for the editor. Approval accepts the current work and authorizes the next **increment** under the agreed approach; proceed without another permission question. Interpret approval by meaning, not a required phrase. Apply corrective feedback to the current **increment**, then stop again; revision alone does not authorize advancing.
 
 If the next step falls outside the agreed approach or its scope is unclear, propose it and wait for agreement before writing.
 
 ## Preserve editorial control
 
-Treat the file as the source of truth. Before each **increment** or revision, reread the relevant text and enough surrounding context to preserve continuity. Preserve the editor’s direct changes; ask about them only when the intended direction is unclear.
+Treat the file as the source of truth. Before each **increment** or revision, reread the relevant text and enough surrounding context to preserve continuity. Preserve the purpose and meaning of the editor’s direct changes, improving their prose within the authorized revision scope. Ask when the intended meaning is unclear.
 
 Keep revisions within the requested scope. If new writing reveals a problem in previously accepted text, identify the passage and propose a targeted change. Wait for agreement before changing it, unless the editor has already requested that revision. Make the resulting change visible through a brief summary or diff.
 
