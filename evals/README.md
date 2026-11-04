@@ -74,11 +74,11 @@ The task's configured verifier model stays unchanged.
 
 ### Choose one task
 
-Run only `high-risk` from the code-review suite, keeping both configured agents:
+Run only `small-change` from the code-review suite, keeping both configured agents:
 
 ```sh
 harbor run --config evals/code-review/with-skill.yaml \
-  --path evals/code-review/tasks/high-risk
+  --path evals/code-review/tasks/small-change
 ```
 
 Add the same `--path` option to either model example to select both a model and

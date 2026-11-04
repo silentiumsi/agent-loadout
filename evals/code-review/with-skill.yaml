@@ -1,10 +1,6 @@
 tasks:
   - path: evals/code-review/tasks/small-change
-  - path: evals/code-review/tasks/high-risk
-  - path: evals/code-review/tasks/in-progress
-  - path: evals/code-review/tasks/stack-interaction
-  - path: evals/code-review/tasks/clean-change
-  - path: evals/code-review/tasks/mixed-skill-code
+  - path: evals/code-review/tasks/completion-checkpoint
 agents:
   - name: codex
     model_name: openai/gpt-6.1-terra

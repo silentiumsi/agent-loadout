@@ -1,6 +1,5 @@
 # Same tasks, agents and models as with-skill.yaml, without the skill.
 tasks:
-  - path: evals/obsidian/tasks/reading-list
   - path: evals/obsidian/tasks/ambiguous-vault
 agents:
   - name: codex

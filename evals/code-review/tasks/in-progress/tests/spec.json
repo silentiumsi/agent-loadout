@@ -1,8 +1,0 @@
-{
-  "review_only": false,
-  "hashes": {
-    "app.py": "9ac619a9ead76339446a237a2f79e2e56ab820b4b2092de92dd5d56a085a6f43",
-    "test_app.py": "5e31cead07d5a3888930031fdc2002b1df60fdbbc6c4d170ab60c5daba6e4a48"
-  },
-  "probe": "from app import display_name; assert display_name(None) == \"\"; assert display_name(\" A \") == \"A\"; assert display_name(\" A   B \") == \"A B\""
-}

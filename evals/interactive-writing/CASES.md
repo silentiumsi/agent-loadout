@@ -61,10 +61,3 @@ the next section after approval.
 
 The checks cover those concrete facts and section boundaries. They allow
 paraphrasing but do not establish general semantic equivalence or prose quality.
-
-## Adding cases
-
-Record the intended behavior and origin for each new case. Distinguish observed
-failures from expected behavior or changed requirements. For a model-driven
-addition, record the model/version, what it exposed, and why it merits
-regression coverage; model availability alone does not establish a regression.

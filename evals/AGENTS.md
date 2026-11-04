@@ -2,10 +2,17 @@
 
 ## Case records
 
+Add a task only for a specific failure, observed in real use or in a trial; do not add
+tasks speculatively to widen coverage. Change an existing task when it grades or
+prompts the wrong thing.
+
 When adding, removing, or changing a task, update `evals/<skill>/CASES.md` in
 the same change. Record the expected behavior, why the case exists, and grading
 limits. Distinguish observed failures from expected behavior or changed
 requirements; include dates and model/version evidence when known.
+
+`CASES.md` describes the suite as it stands now. Do not use it as a log of runs,
+results, or past changes; Git holds that history.
 
 ## Comparable jobs
 
