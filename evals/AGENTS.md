@@ -9,6 +9,9 @@ requirements; include dates and model/version evidence when known.
 
 ## Comparable jobs
 
+Use 16 concurrent trials by default for evaluation jobs. Keep this default in
+new job configs unless the user requests a different limit.
+
 Keep each skill's `with-skill.yaml` and `baseline.yaml` on the same tasks,
 models, and settings; only skill availability should differ. Use local skill
 sources. For conversational tasks, enable `resume_trajectory` on both agents

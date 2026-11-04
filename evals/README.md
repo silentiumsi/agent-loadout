@@ -33,14 +33,14 @@ harbor run --config evals/<skill>/baseline.yaml
 
 ### Defaults
 
-Each job runs one attempt per task and agent, one trial at a time.
+Each job runs one attempt per task and agent, with up to 16 concurrent trials.
 
 ### Optional overrides
 
-For three attempts per task and agent, with two trials running at a time:
+For three attempts per task and agent, keeping the default concurrency:
 
 ```sh
-harbor run --config evals/<skill>/with-skill.yaml --n-attempts 3 --n-concurrent 2
+harbor run --config evals/<skill>/with-skill.yaml --n-attempts 3
 ```
 
 Use the same overrides for the baseline. Add `--print-config` to either command

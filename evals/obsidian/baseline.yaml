@@ -11,4 +11,4 @@ agents:
     model_name: anthropic/claude-sonnet-5-5
     env:
       CLAUDE_FORCE_OAUTH: "1"
-n_concurrent_trials: 1
+n_concurrent_trials: 16

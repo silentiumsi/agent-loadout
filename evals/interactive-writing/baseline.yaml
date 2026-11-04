@@ -13,4 +13,4 @@ agents:
     resume_trajectory: true
     env:
       CLAUDE_FORCE_OAUTH: "1"
-n_concurrent_trials: 1
+n_concurrent_trials: 16

@@ -25,4 +25,4 @@ agents:
       version: "2.1.318"
     env:
       CLAUDE_FORCE_OAUTH: "1"
-n_concurrent_trials: 8
+n_concurrent_trials: 16

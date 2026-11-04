@@ -29,4 +29,4 @@ agents:
       CLAUDE_FORCE_OAUTH: "1"
     skills:
       - ./skills/code-review
-n_concurrent_trials: 8
+n_concurrent_trials: 16
