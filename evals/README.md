@@ -33,18 +33,60 @@ harbor run --config evals/<skill>/baseline.yaml
 
 ### Defaults
 
-Each job runs one attempt per task and agent, one trial at a time.
+Each job runs one attempt per task and agent, with up to 16 concurrent trials.
+Keep the total across simultaneous local Docker jobs at 16 trials or fewer;
+verifiers also create networks and can exhaust Docker address pools.
 
 ### Optional overrides
 
-For three attempts per task and agent, with two trials running at a time:
+For three attempts per task and agent, keeping the default concurrency:
 
 ```sh
-harbor run --config evals/<skill>/with-skill.yaml --n-attempts 3 --n-concurrent 2
+harbor run --config evals/<skill>/with-skill.yaml --n-attempts 3
 ```
 
-Use the same overrides for the baseline. Add `--print-config` to either command
-to inspect its settings without running trials.
+### Choose an agent and model
+
+Run only Codex with an OpenAI model:
+
+```sh
+harbor run --config evals/code-review/with-skill.yaml \
+  --agent codex --model openai/gpt-6.1-terra \
+  --agent-kwarg version=0.166.0 \
+  --agent-env CODEX_FORCE_AUTH_JSON=1 \
+  --resume-trajectory --skill ./skills/code-review
+```
+
+Run only Claude Code with an Anthropic model:
+
+```sh
+harbor run --config evals/code-review/with-skill.yaml \
+  --agent claude-code --model anthropic/claude-sonnet-5-5 \
+  --agent-kwarg version=2.1.318 \
+  --agent-env CLAUDE_FORCE_OAUTH=1 \
+  --resume-trajectory --skill ./skills/code-review
+```
+
+Replace the model identifier to test another model supported by that agent.
+`--agent` replaces the config's agent list; these examples explicitly restore
+its CLI version, subscription settings, conversation resumption, and local skill.
+The task's configured verifier model stays unchanged.
+
+### Choose one task
+
+Run only `small-change` from the code-review suite, keeping both configured agents:
+
+```sh
+harbor run --config evals/code-review/with-skill.yaml \
+  --path evals/code-review/tasks/small-change
+```
+
+Add the same `--path` option to either model example to select both a model and
+a task. Use the task directory's path; `--task` selects a registry task instead.
+
+For baseline comparisons, use `baseline.yaml` with the same overrides and omit
+`--skill` from the model examples. Add `--print-config` to any command to inspect
+its resolved tasks, models, and skill availability without running trials.
 
 ## Read the results
 

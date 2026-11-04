@@ -17,4 +17,4 @@ agents:
       CLAUDE_FORCE_OAUTH: "1"
     skills:
       - ./skills/interactive-writing
-n_concurrent_trials: 1
+n_concurrent_trials: 16

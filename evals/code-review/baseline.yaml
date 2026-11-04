@@ -1,0 +1,19 @@
+tasks:
+  - path: evals/code-review/tasks/small-change
+  - path: evals/code-review/tasks/completion-checkpoint
+agents:
+  - name: codex
+    model_name: openai/gpt-6.1-terra
+    resume_trajectory: true
+    kwargs:
+      version: "0.166.0"
+    env:
+      CODEX_FORCE_AUTH_JSON: "1"
+  - name: claude-code
+    model_name: anthropic/claude-sonnet-5-5
+    resume_trajectory: true
+    kwargs:
+      version: "2.1.318"
+    env:
+      CLAUDE_FORCE_OAUTH: "1"
+n_concurrent_trials: 16

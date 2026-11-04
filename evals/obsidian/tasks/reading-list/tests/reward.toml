@@ -1,4 +1,0 @@
-# Harbor reads the "reward" key: the mean of the programmatic checks.
-[[reward]]
-name = "reward"
-aggregation = "weighted-mean"

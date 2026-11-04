@@ -49,7 +49,7 @@ Restart your client and begin a new session after installing or updating.
 
 | Skill | What it does |
 | --- | --- |
-| [code-review](skills/code-review/SKILL.md) | Reviews changes with independent reviewers for correctness, readability, architecture, security, and performance. |
+| [code-review](skills/code-review/SKILL.md) | Reviews changes on request, scaling effort to risk, across correctness, readability, architecture, security, and performance. |
 | [code-simplification](skills/code-simplification/SKILL.md) | Simplifies working code for clarity while preserving behavior. |
 | [creating-skills](skills/creating-skills/SKILL.md) | Turns repeatable procedures into focused agent skills. |
 | [debugging-and-error-recovery](skills/debugging-and-error-recovery/SKILL.md) | Traces failures to their root cause, repairs them, and verifies the result. |

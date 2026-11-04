@@ -1,98 +1,46 @@
 ---
 name: code-review
-description: Review code in a fresh context across correctness, readability, architecture, security, and performance. Use before merging a PR or change, after feature implementation or a bug fix, when refactoring existing code, or when asked to review code or a diff.
+description: Use for explicit requests to review code, a diff or revision range, a PR or PR stack, or merge readiness, however small the change. Implementation, routine checks, and prose editing do not trigger this skill.
 ---
 
 # Code Review
 
-## Approval standard
+## Scope and effort
 
-Approve a change when it improves overall code health and has no substantiated blocking defects. Judge it against the requirements and project conventions. Perfect code does not exist; aim for continuous improvement.
+Review when requested, including at an agreed milestone. Finishing implementation or running checks is not a request.
 
-Block concrete correctness failures, security vulnerabilities, or material maintainability or performance regressions. The change's benefits do not excuse a blocking defect.
+Establish exactly what you are reviewing: base and target revisions, or a stable snapshot of uncommitted changes. Include relevant callers and tests; keep unrelated changes outside the verdict. Review a PR stack once, cumulatively from the bottom base to the top head, tracing interactions between layers.
 
-Treat personal preferences and optional improvements as nonblocking. Do not demand your preferred implementation when the author's approach works and fits the project. Keep unrelated pre-existing problems outside the approval decision.
+Scale effort to risk and uncertainty, not line count. Review small, low-risk changes directly. Trust boundaries, data isolation, destructive operations, and money movement warrant deeper investigation even in a tiny diff. Do not stop at the first blocker; keep checking the other risks.
 
-## Fresh-context handoff
+Do not rerun a review on unchanged code unless asked. Delegate distinct questions when independent investigation adds evidence; avoid fixed panels. Give reviewers the scope, requirements, relevant code and review criteria, without the implementation conversation or the author's self-assessment.
 
-Delegate to five fresh-context subagents: one each for correctness, readability, architecture, security, and performance. Start each without inherited conversation. Run them in parallel where capacity allows, or in batches; keep a separate reviewer for every axis.
+## Existing PR comments
 
-Establish the **reviewed version**: the base and target revision, or an immutable snapshot of the uncommitted change. All five reviewers must assess that version. New edits require a new reviewed version.
+On a hosted PR, read existing reviews and comments first, including inline ones. Check each claim against the code. Agreement adds confidence, so note it in your summary or the existing thread, but do not open a new thread on an issue already flagged. Dispute a wrong comment with evidence.
 
-Give each reviewer:
+## Investigate
 
-- Its assigned axis, the corresponding criteria below, and the approval standard.
-- The reviewed version and scope.
-- The requirements and expected behavior, repository guidance, and access to relevant code and tests beyond the diff.
-- The findings format below, with instructions to report checks performed and verification limits without editing files.
+Use the relevant lenses without manufacturing findings to fill them:
 
-Withhold the implementation conversation and the author's self-assessment. Give reviewers the evidence needed to judge the change independently, without coaching them toward a verdict. Keep the reviewed version available and unchanged while they work.
-
-If fresh-context subagents are unavailable, report that the independence requirement could not be met. Label any review performed in the current context as a fallback. It may identify blockers, but cannot earn Approve; without substantiated blockers, return Review incomplete until independent review is available.
-
-## Five-axis review
-
-Each reviewer traces the change through relevant callers, dependencies, and tests using its assigned lens. Use the criteria relevant to the change; do not manufacture a finding to fill an axis.
-
-### Correctness
-
-Check whether the change meets the requirements and preserves behavior outside its intended scope. Trace boundary values, empty or missing inputs, error paths, state transitions, and concurrency where applicable.
-
-Assess whether tests exercise the changed behavior and would catch its regression. For a bug fix, check both the failure scenario and the regression test. Run focused checks where practical; distinguish observed results from conclusions based on inspection.
-
-### Readability
-
-Check whether a maintainer can understand the code without the author explaining it. Look for misleading names, tangled control flow, hidden assumptions, and comments that obscure or contradict intent.
-
-Assess whether abstractions earn their complexity and whether the change makes the code easier to reason about. Suggest simplifications that remove a concrete comprehension burden; do not equate fewer lines with clearer code or impose personal style over project conventions.
-
-### Architecture
-
-Trace responsibility and dependency boundaries. Check that logic lives with the concept it owns, dependencies flow in the intended direction, and contracts remain compatible with their consumers.
-
-Assess new abstractions, coupling, and duplication in context. For refactors, check whether complexity is reduced rather than relocated. Propose a targeted structural remedy when a boundary causes a concrete maintenance problem; avoid demanding speculative generalization or an unrelated redesign.
-
-### Security
-
-Trace untrusted data across system boundaries to sensitive operations. Check validation, authentication and authorization, injection risks, output encoding, and exposure of secrets or personal data where relevant. Inspect changed dependencies and permissions for added attack surface.
-
-Ground findings in a reachable path and the trust or privilege it crosses.
-
-### Performance
-
-Assess costs at realistic workloads, including algorithmic growth, repeated queries or network calls, unbounded fetching, blocking work, resource retention, and hot-path allocations or rendering.
-
-Use measurements or a concrete workload and cost model to support material regressions. Identify hypotheses that need profiling as unresolved questions.
+- **Correctness:** Trace requirements, callers, boundary inputs, state transitions, concurrency, and error paths, following failures through partial effects and reported completion. Check what tests actually cover.
+- **Readability:** Look for misleading names, hidden assumptions, and tangled control flow that make maintenance harder.
+- **Architecture:** Check ownership, dependency direction, and compatibility with consumers.
+- **Security:** Trace reachable paths from untrusted inputs across trust or privilege boundaries to sensitive operations.
+- **Performance:** Assess realistic workloads, repeated calls, resource retention, and growth. Support material regressions with measurements or a concrete cost model.
 
 ## Findings and verdict
 
-Consolidate the five reviews into one report. Verify findings against the reviewed code, merge duplicates across axes, and resolve conflicting recommendations using evidence and the approval standard. Do not count reviewer agreement as proof or discard a substantiated issue because only one reviewer found it.
+Block substantiated correctness failures, security vulnerabilities, and material maintainability or performance regressions. Judge against requirements and project conventions; keep preferences, speculative redesign, and unrelated pre-existing issues nonblocking.
 
-Order findings by impact, with blockers first. For each finding, include:
+Before reporting, check each candidate finding against the code, drop false positives, merge duplicates, mark anything already flagged, and rank the rest by severity. After delegating, have one fresh **verifier** do this with all the reviewers' candidates and any existing PR comments. Report only what survives. Each finding needs its blocking or nonblocking classification, precise location, concrete trigger and consequence, and a targeted remedy. Keep unresolved questions separate from demonstrated defects.
 
-- **Classification and axis:** Blocking or nonblocking, and the relevant review dimension.
-- **Location:** A file and the smallest useful line range in the reviewed version.
-- **Evidence and consequence:** The concrete trigger or scenario, what goes wrong, and why it matters.
-- **Remedy:** A targeted correction or direction that addresses the problem without prescribing an unnecessary rewrite.
+Produce one report identifying what was reviewed, the findings, checks, and material limits. A small clean diff needs only a short supported verdict. End with:
 
-Keep unresolved questions separate from demonstrated defects. State what evidence would resolve them; do not inflate uncertainty into a blocker or silently treat it as verified behavior.
+- **Approve:** Requirements are met and no substantiated blockers remain. This assesses readiness; it does not authorize merging.
+- **Request changes:** Substantiated blockers remain; name what must change and disclose coverage gaps.
+- **Review incomplete:** No blocker is established, but missing evidence prevents a supported decision; name what is needed.
 
-Identify the reviewed version, summarize coverage of all five axes, and report checks performed and material verification limits. Say explicitly when an axis has no findings or could not be assessed; a clean report must not conceal missing coverage.
+## Repairs
 
-End with one verdict:
-
-- **Approve:** The change improves overall code health and has no substantiated blockers. Nonblocking suggestions may remain.
-- **Request changes:** One or more substantiated blockers remain. Name what must be addressed.
-- **Review incomplete:** Missing context, coverage, or verification prevents a supported approval decision. Name what remains unverified and what is needed to finish.
-
-A review verdict assesses readiness; it does not authorize merging.
-
-## Repair and re-review
-
-For a standalone review request, deliver the consolidated report and stop. When repair work is authorized, return the findings to the implementing agent, who addresses blockers with focused fixes and relevant checks. The review coordinator tracks their disposition and starts re-review. Keep reviewers out of the repair work; leave nonblocking suggestions optional.
-
-If a finding is disputed, resolve it against the requirements and code evidence. Record why it was dismissed or reclassified rather than silently dropping it.
-
-After repairs, establish a new reviewed version and repeat the five-axis review with new fresh-context subagents. Supply the original requirements, the new reviewed version, and the issues to verify, without the prior reviewers' verdicts or the author's self-assessment. Review the complete revised change, including whether the repairs introduce new problems.
-
-Track each previous blocker as resolved, still present, or dismissed with evidence. Declare the change ready only when the revised version earns an Approve verdict under the approval standard. If blockers or material review gaps remain, report them explicitly.
+For a standalone review, report and stop. When repairs are authorized, fix blockers with focused checks, verify them against the complete change, and reassess with effort scaled to the new risk. Leave nonblocking suggestions optional.
