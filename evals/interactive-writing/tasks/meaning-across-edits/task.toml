@@ -1,0 +1,23 @@
+artifacts = ["/app/guide.md"]
+multi_step_reward_strategy = "mean"
+
+[agent]
+timeout_sec = 180
+
+[verifier.environment]
+network_mode = "no-network"
+
+[[steps]]
+name = "draft-current"
+[steps.verifier.env]
+WRITING_STAGE = "draft-current"
+
+[[steps]]
+name = "human-edit"
+[steps.verifier.env]
+WRITING_STAGE = "human-edit"
+
+[[steps]]
+name = "accept-edit"
+[steps.verifier.env]
+WRITING_STAGE = "accept-edit"

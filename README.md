@@ -63,6 +63,15 @@ Restart your client and begin a new session after installing or updating.
 
 For maintenance and release instructions, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## Evaluate skills
+
+[Harbor evaluations](evals/README.md) test the local skills in this checkout
+and compare them with runs without the skill. Start with the Obsidian eval:
+
+```sh
+harbor run --config evals/obsidian/with-skill.yaml
+```
+
 ## Attribution
 
 Loadout is inspired by:
