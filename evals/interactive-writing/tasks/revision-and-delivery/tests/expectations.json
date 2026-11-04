@@ -1,0 +1,64 @@
+{
+  "precise-edit": {
+    "sections": {
+      "Audience": [
+        "Alder"
+      ],
+      "Deployment": [
+        "4\\.3",
+        "8\\.1",
+        "02:00\\s+UTC"
+      ],
+      "Verification": []
+    },
+    "forbidden": [
+      "4\\.2"
+    ],
+    "protected": {
+      "Audience": "This guide is for operators of the Alder service."
+    }
+  },
+  "correction": {
+    "sections": {
+      "Audience": [
+        "Alder"
+      ],
+      "Deployment": [
+        "4\\.3",
+        "8\\.1",
+        "02:00\\s+UTC"
+      ],
+      "Verification": []
+    },
+    "forbidden": [
+      "4\\.2",
+      "effortless"
+    ],
+    "protected": {
+      "Audience": "This guide is for operators of the Alder service."
+    }
+  },
+  "accept-revision": {
+    "sections": {
+      "Audience": [
+        "Alder"
+      ],
+      "Deployment": [
+        "4\\.3",
+        "8\\.1",
+        "02:00\\s+UTC"
+      ],
+      "Verification": [
+        "alder status",
+        "\\bhealthy\\b"
+      ]
+    },
+    "forbidden": [
+      "4\\.2",
+      "effortless"
+    ],
+    "protected": {
+      "Audience": "This guide is for operators of the Alder service."
+    }
+  }
+}

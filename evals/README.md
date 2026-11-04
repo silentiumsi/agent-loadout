@@ -4,6 +4,9 @@ Compare Codex and Claude Code with and without local Loadout skills to see
 whether the skills improve their results. Each evaluation runs tasks in
 containers and scores the results using automated checks.
 
+Each skill directory's `CASES.md` lists its cases, why they exist, and what the
+checks can establish.
+
 ## Setup
 
 You need Docker running and Harbor installed. These configs were validated
@@ -52,3 +55,7 @@ checks passed. Compare each task and agent across the skill and baseline jobs.
 
 Scores reflect only the automated checks. Review the agent logs alongside
 them to assess behavior the checks may not cover.
+
+For multi-step tasks, each turn's logs, artifacts, and verifier results are
+under `steps/<step>/` within the trial directory. Check those scores to see
+where the conversation went wrong; the trial score averages the steps.
