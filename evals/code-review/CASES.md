@@ -296,3 +296,127 @@ come from `code-review-final-r6-20261104`, not a selection across development ru
 These are development-case results after tuning, not held-out transfer evidence.
 The final complete gate is one attempt per case and agent. High-risk repeats were
 used to diagnose instability; they do not establish broad reliability.
+
+## Slimming audit: 2026-11-04
+
+The R6 skill grew around repeated failures on the single high-risk export fixture.
+Its ordered evidence sequence, mandatory runtime probes and independent check,
+four named report notes, and repeated selection/dispatch example prescribed a
+particular way to pass that case. The underlying review needs are broader:
+trace consequential boundaries, investigate operational failures, assess regression
+coverage, and compare realistic costs. The slim candidate retains those needs
+while allowing the reviewer to choose sufficient evidence and report structure.
+
+### Grader audit
+
+The deterministic checks in all eleven tasks check source preservation (hashes
+of supplied files for review-only tasks) and requested executable behavior
+(Python assertions for implementation tasks). They do not match report wording,
+headings, reviewer counts, or tool sequences. These checks are appropriate artifact
+invariants and did not cause the procedural specificity found in the skill.
+Their limits remain important: hashes do not establish review quality and the
+small implementation probes do not establish broad correctness.
+
+The main overfitting pressure came from semantic grading and case selection:
+
+- `high-risk` places authorization, caller tracing, operational errors, tests,
+  and workload analysis in one all-pass criterion on one tiny fixture. Its
+  reference permits direct investigation and does not require probes, delegation,
+  named headings, or a fixed sequence. Those mechanics were skill-side responses
+  to development failures, not necessary grader contracts.
+- `explicit-mid-task` repeats the same export defect. It adds trigger coverage,
+  not an independent security scenario. Repeated high-risk attempts measure
+  variability on that fixture, not additional capability coverage.
+- Reviewer limits are case-specific proxies for proportionate effort. Keep them
+  out of universal skill rules; inspect evidence and unnecessary work alongside
+  counts. A five-reviewer limit on a harmless stack does not make five useful.
+- Most cases exercise triggering, coordination, or restraint. There is little
+  independent evidence for readability, architecture, concurrency, or complex
+  performance review. The suite's perfect score cannot establish those abilities.
+
+The existing graders and thresholds remain unchanged for the slimming comparison;
+changing them would confound whether the skill preserved the established scores.
+For a future eval revision, separate substantive coverage from orchestration,
+calibrate concise source-based reviews against probe-based alternatives, and add
+held-out realistic changes covering different failure and cost mechanisms. Include
+cases where extra investigation is useful and where stopping after sufficient
+evidence is appropriate. Set criteria before examining candidate outputs and
+rerun both skill conditions after changing graders.
+
+### Slimming experiments
+
+The first 662-word candidate replaced the high-risk procedure with general
+coverage guidance. Its unchanged-grader gate, `jobs/code-review-slim-gate-20261104`,
+finished at 20/22 with no runtime errors: both high-risk reviews found the tenant
+leak but omitted operational-error and workload analysis. Every other case passed.
+A prose-only clarification failed both targeted high-risk trials
+(`jobs/code-review-slim-r2-high-risk-20261104`). A short checklist passed Codex but
+failed Claude, which incorrectly described costs as unchanged and omitted error
+analysis (`jobs/code-review-slim-r3-high-risk-20261104`). These are substantive
+coverage failures, not exact-format failures, and remain part of the record.
+
+The 806-word candidate therefore retained a compact high-risk evidence sequence,
+including practical failure/count probes and an independent challenge when
+available. Cost comparisons apply where workload may change. It removes the
+fixture-specific selection/dispatch example, mandatory report headings, repeated
+cost explanations, and extensive handoff/re-review mechanics. Blind reviews
+informed applicability and wording corrections; the procedure is retained because
+more general candidates did not preserve the established behavior.
+
+Candidate snapshots and configs are under
+`jobs/code-review-slim-development-20261104/`. Its full gate is
+`jobs/code-review-slim-final-20261104`, using the frozen `final/code-review`
+snapshot, unchanged graders, the same pinned models, one attempt per case/model,
+and the newly requested default of 16 concurrent trials. The first gate ran at
+8; the subsequent jobs default to 16. Existing R6 results remain the previous-skill
+reference. No grader or baseline was changed to offset candidate failures.
+
+The compact-sequence probe passed Codex but failed Claude
+(`jobs/code-review-slim-r5-high-risk-20261104`); Claude loaded the skill but
+dismissed increased sends without a cost comparison. The 806-word full gate
+also reproduced a high-risk coverage failure on Codex. These failures constrain
+the claimed simplification: removing concrete guidance was not score-neutral.
+
+The 893-word candidate preserves the original high-risk section verbatim and
+trims the surrounding guidance, reducing total length by 51%. Its snapshot/config are
+`preserved-high-risk/code-review` and `preserved-high-risk.yaml`; the fresh full
+gate is `jobs/code-review-slim-preserved-high-risk-20261104`. The generic
+cardinality example and explicit high-risk evidence notes remain because the
+more abstract candidates repeatedly lost the behavior they illustrate. This
+retention is a measured limit of the current suite, not evidence that every
+mechanic is essential in general. A blind review found no additional substantial
+gap; the explicit high-risk sequence takes precedence over discretionary
+delegation, and reassessment effort follows the risk of the revised change.
+
+The first preserved-high-risk gate completed with 17/17 valid trials passing and
+five setup-invalid trials: Docker reported exhausted default address pools
+while two 16-trial jobs overlapped. Six unused code-review eval networks with no
+attached containers were removed. CPU and memory remained available; network
+allocation, including separate verifier environments, was the limiting resource.
+All five setup-invalid task/model pairs are rerun under the same frozen snapshot
+and unchanged graders, without retrying any behavioral failure. The two retry
+jobs total five trials; future overlapping local jobs share a 16-trial budget.
+Original infrastructure failures remain recorded in the first gate.
+
+### Final slimming result
+
+The 893-word skill passed **22/22 valid trials and all 32 conversational turns**:
+11/11 on Codex and 11/11 on Claude, matching the previous R6 scores under the
+unchanged graders. The five setup-only replacements all passed without further
+infrastructure failures. Every valid trial from the final candidate is retained;
+no behavioral failure was retried or substituted. Retry jobs are
+`jobs/code-review-slim-setup-retry-claude-20261104` and
+`jobs/code-review-slim-setup-retry-codex-20261104`. The consolidated report,
+including selected trial paths and excluded setup failures, is
+`jobs/code-review-slim-development-20261104/results.json`.
+
+Final SHA256: `e2270373c2c02ff8804c4912c234367f65e87d4e36e7e2febaa0dab337d4aaa6`.
+This is a 51% reduction from 1,812 words. All six checked-in job configs now
+default to 16 concurrent trials. Model versions, tasks, and scoring are unchanged;
+the first slimming gate used concurrency 8 and subsequent jobs used 16.
+
+These remain tuned development cases with one valid attempt per model/case,
+including infrastructure replacements, not held-out evidence of transfer or a
+reliability estimate. The audit supports removing surrounding verbosity while
+retaining the high-risk procedure for this suite. It does not establish that
+all of that procedure is necessary for general code review.
