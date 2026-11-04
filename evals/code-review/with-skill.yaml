@@ -1,14 +1,9 @@
 tasks:
   - path: evals/code-review/tasks/small-change
-  - path: evals/code-review/tasks/minor-follow-up
   - path: evals/code-review/tasks/high-risk
   - path: evals/code-review/tasks/in-progress
-  - path: evals/code-review/tasks/completion-checkpoint
-  - path: evals/code-review/tasks/explicit-mid-task
-  - path: evals/code-review/tasks/six-pr-stack
   - path: evals/code-review/tasks/stack-interaction
   - path: evals/code-review/tasks/clean-change
-  - path: evals/code-review/tasks/skill-editing
   - path: evals/code-review/tasks/mixed-skill-code
 agents:
   - name: codex

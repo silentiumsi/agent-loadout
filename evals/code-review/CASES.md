@@ -12,28 +12,43 @@ roughly thirty reviewers for a six-PR stack are user observations recorded on
 2026-11-04. The originating model/version and trajectories are unavailable. The measured
 first-campaign results are recorded below.
 
-All eleven cases are development cases, not a held-out representative sample.
-The suite supports diagnosis, not an estimate of everyday failure rates.
+The six current cases are development cases, not a held-out representative
+sample. Each job runs 12 trials across the two agents. The suite supports
+diagnosis, not an estimate of everyday failure rates.
 
 ## Cases
 
 | Task | Expected behavior and reason | Grading limits |
 | --- | --- | --- |
 | small-change | Review a harmless function docstring improvement directly or with at most one reviewer, in one round. Tests proportional effort. | A deliberately low-risk boundary case; does not establish appropriate effort for substantive code changes. |
-| minor-follow-up | Review a small change, then perform a requested wording adjustment without another full panel. At most one reviewer across both turns. | Does not prohibit re-review when a follow-up changes behavior or risk. |
 | high-risk | Find removal of tenant filtering in order exports, trace its caller, and request changes for cross-tenant disclosure. Inspect relevant correctness and costs. | Tests a consequential authorization defect, not broad coverage of complex systems. Reviewer count alone cannot establish thoroughness. |
 | in-progress | Implement whitespace normalization, then None handling, without formal readiness reviews during either intermediate turn. | Implementation inspection, tests, and debugging are permitted. Both turns explicitly remain in progress. |
-| completion-checkpoint | Implement None handling and verify it without unsolicited code review. | Changed requirement for the revision: explicit-request-only review, including completion. Tests and ordinary completion summaries are allowed. |
-| explicit-mid-task | Honor an immediate review request and find the tenant disclosure, leaving the source unchanged. | Does not require a milestone or a particular delegation strategy. |
-| six-pr-stack | Review base..HEAD across six local commits as one coordinated review, using at most five reviewers total. | Local tags model PR tips; no hosted PR metadata or gh-stack installation is required. Reading individual commits is allowed. |
 | stack-interaction | Review the cumulative stack and catch a paging contract mismatch introduced across PR 1 and PR 6. Use one coordinated review and at most five reviewers. | Each layer is readable locally. This measures interaction detection, not hosted stack operations. |
 | clean-change | Approve a valid documentation improvement without blocking on unchanged legacy SQL construction or stylistic preferences. At most one reviewer. | Does not establish safety of the legacy code; that code is outside the reviewed change. |
-| skill-editing | Across three turns, edit prose-only SKILL.md without automatic code review or reviewer panels, including at completion. | Ordinary prose proofreading is allowed. This is not an explicit request to review a skill. |
 | mixed-skill-code | First edit skill prose and fix/check its executable normalizer without automatic review. Then honor an explicit review request for the script and relevant instructions, with at most one reviewer. | Two turns distinguish trigger restraint from a blanket exclusion of executable code in skill directories. Baselines must rerun this changed conversation. |
 
 The one-reviewer and five-reviewer limits are provisional, case-specific acceptance
 thresholds chosen before model trials. They are not universal policies. Direct
 review is valid where it produces the required evidence and verdict.
+
+## Removed cases: 2026-11-04
+
+Removed these fixtures and their entries from both job configs to reduce
+redundant coverage. They are not retained as optional tests; Git history preserves
+them. Retained fixtures and graders are unchanged.
+
+| Removed case | Coverage retained elsewhere and limits |
+| --- | --- |
+| six-pr-stack | stack-interaction exercises cumulative coordination and adds a cross-layer defect. |
+| explicit-mid-task | mixed-skill-code tests an explicit review request after implementation; high-risk retains the same tenant-disclosure fixture. Immediate review during unfinished implementation is no longer tested separately. |
+| skill-editing | mixed-skill-code includes prose editing without automatic review. The three-turn prose-only conversation is no longer tested separately. |
+| completion-checkpoint | in-progress and mixed-skill-code retain implementation restraint. Completion without an explicit review request is no longer tested separately. |
+| minor-follow-up | small-change retains proportionality. A wording follow-up without another review round is no longer tested separately. |
+
+Prior 11-case scores below remain historical results, not measurements of a new
+suite run. Selecting these six cases from the recorded slim-skill results gives
+12/12, versus 10/12 for the recorded no-skill baseline; this is a subset of the
+same development evidence, not a fresh comparison or stronger uplift claim.
 
 ## Grading
 
@@ -56,7 +71,7 @@ implementation prompts.
   (substantive findings, restraint, task delivery and supported verdicts) and
   `orchestration` (trigger timing, review scope, reviewer count and repeated rounds).
   Inspect their individual results in `reward-details.json`. All applicable
-  criteria must pass, including explicit-request-only completion review.
+  criteria must pass.
 - `reward`: all dimensions must pass. Inspect individual dimensions and individual
   turn scores; a mean across conversational turns is not a must-pass guarantee.
 
@@ -70,7 +85,12 @@ Verify with-skill trials actually load the installed local skill before attribut
 any difference to it. Record launches, review rounds, reviewed ranges, runtime and
 cost from trial logs during analysis; there is no custom metrics collector.
 
-## Validation and remaining work
+## Historical validation and campaigns
+
+The following records describe the former eleven-case suite, including fixtures
+removed above. Preserve their counts, outcomes, and artifact paths as recorded.
+
+### Validation and remaining work
 
 During the 2026-11-04 full comparison, the two stack fixtures exposed a setup
 defect: `cp -a` preserved same-size files' timestamps and Git missed comment
