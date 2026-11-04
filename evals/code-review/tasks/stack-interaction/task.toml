@@ -1,0 +1,15 @@
+artifacts = ["/app", "/logs/agent"]
+
+[agent]
+timeout_sec = 900
+
+[verifier]
+environment_mode = "separate"
+timeout_sec = 600
+
+[verifier.env]
+CODEX_AUTH_JSON = "${CODEX_AUTH_JSON}"
+REWARDKIT_FORCE_SUBSCRIPTION = "1"
+
+[verifier.environment]
+network_mode = "public"

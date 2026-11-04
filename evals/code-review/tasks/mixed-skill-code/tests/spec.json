@@ -1,0 +1,9 @@
+{
+  "review_only": false,
+  "hashes": {
+    "SKILL.md": "ba590230c4b180e60f52aed9ebd2944055c80362ddf2896de600bcb8248963ad",
+    "test_app.py": "2f7edbdbdc2ff296783857244bbbc14162591eac5236e6ac24fa930d29047387",
+    "normalize.py": "5c7668785255c3daddf90db8059e17f063fbada698e6d1392fd0353c311a4e89"
+  },
+  "probe": "from normalize import normalize; assert normalize([\" A \", \"\", \"  \", \"B\"]) == [\"A\", \"B\"]"
+}

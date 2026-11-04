@@ -1,0 +1,28 @@
+tasks:
+  - path: evals/code-review/tasks/small-change
+  - path: evals/code-review/tasks/minor-follow-up
+  - path: evals/code-review/tasks/high-risk
+  - path: evals/code-review/tasks/in-progress
+  - path: evals/code-review/tasks/completion-checkpoint
+  - path: evals/code-review/tasks/explicit-mid-task
+  - path: evals/code-review/tasks/six-pr-stack
+  - path: evals/code-review/tasks/stack-interaction
+  - path: evals/code-review/tasks/clean-change
+  - path: evals/code-review/tasks/skill-editing
+  - path: evals/code-review/tasks/mixed-skill-code
+agents:
+  - name: codex
+    model_name: openai/gpt-6.1-terra
+    resume_trajectory: true
+    kwargs:
+      version: "0.166.0"
+    env:
+      CODEX_FORCE_AUTH_JSON: "1"
+  - name: claude-code
+    model_name: anthropic/claude-sonnet-5-5
+    resume_trajectory: true
+    kwargs:
+      version: "2.1.318"
+    env:
+      CLAUDE_FORCE_OAUTH: "1"
+n_concurrent_trials: 8
