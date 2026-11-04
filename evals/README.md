@@ -34,6 +34,8 @@ harbor run --config evals/<skill>/baseline.yaml
 ### Defaults
 
 Each job runs one attempt per task and agent, with up to 16 concurrent trials.
+Keep the total across simultaneous local Docker jobs at 16 trials or fewer;
+verifiers also create networks and can exhaust Docker address pools.
 
 ### Optional overrides
 
