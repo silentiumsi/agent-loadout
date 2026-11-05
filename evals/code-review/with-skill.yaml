@@ -1,6 +1,9 @@
 tasks:
   - path: evals/code-review/tasks/small-change
   - path: evals/code-review/tasks/completion-checkpoint
+  - path: evals/code-review/tasks/requirements-drift
+  - path: evals/code-review/tasks/generated-noise
+  - path: evals/code-review/tasks/merged-change
 agents:
   - name: codex
     model_name: openai/gpt-6.1-terra
