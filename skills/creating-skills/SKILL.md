@@ -43,25 +43,11 @@ Add other frontmatter fields only when the target environment supports them and 
 
 Choose headings that fit the skill’s task. Use numbered steps when order matters; otherwise organize by decisions, topics, or operating modes.
 
-## Writing Principles
+## Writing the Body
 
-1. **Keep only behavior-changing guidance.** For each instruction, ask what the agent would plausibly do wrong without it. Delete it if there is no concrete answer. Remove generic contracts, obvious mechanics, and explanatory restatements. Replace duplicated detail from scripts or authoritative references with a link and a clear condition for consulting the source when the agent still needs that information. Cut sections before shortening sentences.
+Write the instructions with `writing-for-agents`: what to keep, how to state authority and completion, and how to lead with what the agent needs. Load it before drafting the body.
 
-2. **Use leading words.** A leading word is a compact, familiar concept that steers how the agent thinks and acts. During drafting, actively look for repeated explanations or clusters of instructions that a leading word could carry. Consider familiar concepts whose existing associations evoke the intended behavior, such as “tracer bullet” for a small implementation that proves a path through the system. Choose terms that carry that behavior more effectively than the descriptions they replace. Define any skill-specific meaning at first use, then repeat the term consistently. Use the same vocabulary in the skill's description and related guidance where it helps the agent recognize when to use them.
-
-3. **A picture is worth a thousand words.** Use an example or small diagram when it conveys the intended behavior more effectively than prose. Let it replace the explanation; retain prose only for constraints it cannot carry.
-
-4. **Make the desired behavior clear.** Use direct verbs. When describing a mistake or setting a boundary, explain what to do instead.
-
-5. **Be specific where it matters.** Preserve constraints that affect correctness; leave routine execution to the agent. Prescribe exact mechanics only when correctness depends on them. A possible edge case alone does not justify another rule.
-
-6. **Make completion checkable.** State only task-specific completion evidence. Do not add an Input/Output/Stop section or generic verification ceremony unless it resolves real ambiguity. Report checks that could not run as unverified.
-
-7. **Put information where it is needed.** Keep essential guidance inline and branch-specific detail behind references with clear reading conditions. Group related rules and caveats; keep each instruction in one authoritative place.
-
-8. **Use failure tables selectively.** For recurring or demonstrated mistakes, show the temptation, why it fails, and what to do instead. Place the table beside the relevant guidance. Prefer structural enforcement when it can prevent the mistake reliably.
-
-9. **Write durable procedures.** Ground instructions in task constraints and required capabilities. Avoid model-specific workarounds and private tool names.
+Put branch-specific detail in `references/` and link it from the body with the condition for reading it. Keep skills durable: ground them in task constraints and required capabilities, not model-specific workarounds or private tool names.
 
 ## Final Cut Pass
 

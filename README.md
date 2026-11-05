@@ -51,7 +51,7 @@ Restart your client and begin a new session after installing or updating.
 | --- | --- |
 | [code-review](skills/code-review/SKILL.md) | Reviews changes on request, scaling effort to risk, across correctness, readability, architecture, security, and performance. |
 | [code-simplification](skills/code-simplification/SKILL.md) | Simplifies working code for clarity while preserving behavior. |
-| [creating-skills](skills/creating-skills/SKILL.md) | Turns repeatable procedures into focused agent skills. |
+| [creating-skills](skills/creating-skills/SKILL.md) | Structures agent skills: layout, frontmatter, descriptions, and final review. |
 | [debugging-and-error-recovery](skills/debugging-and-error-recovery/SKILL.md) | Traces failures to their root cause, repairs them, and verifies the result. |
 | [documentation](skills/documentation/SKILL.md) | Writes and maintains technical documentation, cutting clutter while preserving facts and decision rationale. |
 | [evaluating-skills](skills/evaluating-skills/SKILL.md) | Designs and reviews behavioral evaluations for agent skills. |
@@ -60,6 +60,7 @@ Restart your client and begin a new session after installing or updating.
 | [interactive-writing](skills/interactive-writing/SKILL.md) | Writes with you as editor, in agreed increments with feedback between each. |
 | [obsidian](skills/obsidian/SKILL.md) | Finds, reads, and maintains notes in your local Obsidian vaults. |
 | [scratch](skills/scratch/SKILL.md) | Keeps disposable task files in a locally ignored `.scratch/` directory. |
+| [writing-for-agents](skills/writing-for-agents/SKILL.md) | Writes instructions agents read: AGENTS.md, slash commands, subagent prompts, handoff notes, and skill bodies. |
 | [writing-specs](skills/writing-specs/SKILL.md) | Writes specifications that humans and agents can understand, implement, and verify. |
 
 For maintenance and release instructions, see [CONTRIBUTING.md](CONTRIBUTING.md).
