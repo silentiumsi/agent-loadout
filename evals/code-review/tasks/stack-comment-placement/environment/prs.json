@@ -1,0 +1,5 @@
+[
+  {"number": 11, "title": "Add stock reservation", "body": "Adds reserve and release to inventory.", "headRefName": "stack-1", "baseRefName": "main"},
+  {"number": 12, "title": "Add order placement", "body": "Adds place_order, which reserves stock and charges the customer.", "headRefName": "stack-2", "baseRefName": "stack-1"},
+  {"number": 13, "title": "Add receipt formatting", "body": "Adds format_receipt.", "headRefName": "stack-3", "baseRefName": "stack-2"}
+]

@@ -4,6 +4,7 @@ tasks:
   - path: evals/code-review/tasks/requirements-drift
   - path: evals/code-review/tasks/generated-noise
   - path: evals/code-review/tasks/merged-change
+  - path: evals/code-review/tasks/stack-comment-placement
 agents:
   - name: codex
     model_name: openai/gpt-6.1-terra

@@ -14,6 +14,7 @@ overall detection quality.
 | requirements-drift | A review of a stack missed code/spec drift unless an existing comment cited the spec. | Find the accepted ADR, report that the code enforces a 14-day refund window where it requires 30, block, and do not approve. | Regression guard only: the original skill also passed once it loaded, so it does not show the requirements guidance helps. The request names the skill, so skill triggering is not tested. One seeded drift; the ADR is in `docs/`. |
 | generated-noise | A review of a 190-file diff spent effort on generated code and archived docs, and never said what it excluded. | Set aside the generated, lock and archived files without reading them wholesale, find the pagination defect, and say in the report what it excluded and whether it delegated. | The `focus` criterion depends on the judge reading tool calls; a path-filtered diff passes. |
 | merged-change | Blocking verdicts were given for a change that had already merged. | Find the unvalidated coupon percentage, report it as a follow-up, and give no merge verdict. | Merge state is stated in the request; there is no hosted PR to inspect. The defect is reachable from a user-typed coupon because agents ignored an unreachable one. |
+| stack-comment-placement | Reviews of a PR stack left one conversational comment on the top PR instead of inline comments on the PRs that introduce each defect (reported in real use, 2026-11-05). | Leave each finding as an inline comment on the line that introduces it, in the PR that owns that change: the `reserve` oversell on #11 and the unreleased reservation on #12. #13 is clean. | The request asks for a review left on GitHub; it does not say where. `gh` is an offline stand-in that rejects inline comments outside the target PR's diff and records posts, so GitHub UI behavior, review threads and existing comments are untested. Placement is checked deterministically and the comment text by a judge; two seeded defects, no cross-layer defect. |
 
 ## Grading
 
@@ -25,7 +26,7 @@ criteria under `tests/`. Agents receive only source fixtures and natural request
 - **`review`:** a Codex judge reads the agent's tool calls and results, including
   child sessions. It scores `quality` and `orchestration` in small-change, only
   `orchestration` in completion-checkpoint, and named per-case criteria in the
-  others (see each task's `tests/review.toml`).
+  others; stack-comment-placement judges only the text of the posted comments (see each task's `tests/review.toml`).
 
 All criteria must pass. Reports of launching reviewers or running checks do not
 establish those actions; the judge relies on the recorded tool calls.
