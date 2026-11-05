@@ -19,6 +19,12 @@ Do not rerun a review on unchanged code unless asked. Delegate distinct question
 
 On a hosted PR, form your own findings from the diff first. Then read existing reviews and comments, including inline ones, and check each claim against the code. Agreement adds confidence, so note it in your summary or the existing thread, but do not open a new thread on an issue already flagged. Dispute a wrong comment with evidence.
 
+## Posting to a PR
+
+Report in the conversation unless asked to leave the review on the PR. When asked, post only findings that survived verification, each as an inline comment on the changed line where the defect is visible, in the PR whose diff contains that line. In a stack that is the owning layer, not the top PR; use each PR's own diff or `git blame` to find it. GitHub rejects an inline comment on a line outside that PR's diff.
+
+A finding with no fitting line gets its own conversational comment on the PR where it originates, naming any other layers involved. A summary or verdict comment may accompany the findings but never holds one.
+
 ## Investigate
 
 Use the relevant lenses without manufacturing findings to fill them:
