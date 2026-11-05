@@ -1,0 +1,22 @@
+schema_version = "1.4"
+artifacts = ["/app/project"]
+
+[task]
+name = "silentiumsi/writing-for-agents-author-skill-body"
+version = "1.0.0"
+description = "Write a new agent skill from a maintainer's request: match neighbor frontmatter, keep only behavior-changing content, flag a helper that exits 0 with warnings."
+keywords = ["skills", "writing", "rewardkit", "judge-grading"]
+
+[verifier]
+timeout_sec = 900.0
+environment_mode = "separate"
+
+[verifier.env]
+CLAUDE_CODE_OAUTH_TOKEN = "${CLAUDE_CODE_OAUTH_TOKEN}"
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 600.0

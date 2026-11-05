@@ -1,0 +1,22 @@
+schema_version = "1.4"
+artifacts = ["/app/project"]
+
+[task]
+name = "silentiumsi/writing-for-agents-delegate-review"
+version = "1.0.0"
+description = "Write a self-contained subagent prompt from rich session context, including what must be withheld."
+keywords = ["skills", "writing", "rewardkit", "judge-grading"]
+
+[verifier]
+timeout_sec = 900.0
+environment_mode = "separate"
+
+[verifier.env]
+CLAUDE_CODE_OAUTH_TOKEN = "${CLAUDE_CODE_OAUTH_TOKEN}"
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 600.0

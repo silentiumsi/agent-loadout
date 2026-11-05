@@ -1,0 +1,4 @@
+# The only automated gate on merges.
+jobs:
+  lint:
+    run: ruff check .

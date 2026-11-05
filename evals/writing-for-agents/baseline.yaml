@@ -1,0 +1,22 @@
+tasks:
+  - path: evals/writing-for-agents/tasks/authority-conflict
+  - path: evals/writing-for-agents/tasks/delegate-review
+  - path: evals/writing-for-agents/tasks/handoff-note
+  - path: evals/writing-for-agents/tasks/author-skill-body
+  - path: evals/writing-for-agents/tasks/slash-command
+agents:
+  - name: codex
+    model_name: openai/gpt-6.1-terra
+    resume_trajectory: true
+    kwargs:
+      version: "0.166.0"
+    env:
+      CODEX_FORCE_AUTH_JSON: "1"
+  - name: claude-code
+    model_name: anthropic/claude-sonnet-5-5
+    resume_trajectory: true
+    kwargs:
+      version: "2.1.318"
+    env:
+      CLAUDE_FORCE_OAUTH: "1"
+n_concurrent_trials: 16

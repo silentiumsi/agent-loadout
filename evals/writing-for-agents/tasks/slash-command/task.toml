@@ -1,0 +1,22 @@
+schema_version = "1.4"
+artifacts = ["/app/project"]
+
+[task]
+name = "silentiumsi/writing-for-agents-slash-command"
+version = "1.0.0"
+description = "Write a slash command whose output is parsed downstream by a strict tool that exits 0 on rejected lines."
+keywords = ["skills", "writing", "rewardkit", "judge-grading"]
+
+[verifier]
+timeout_sec = 900.0
+environment_mode = "separate"
+
+[verifier.env]
+CLAUDE_CODE_OAUTH_TOKEN = "${CLAUDE_CODE_OAUTH_TOKEN}"
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 600.0
