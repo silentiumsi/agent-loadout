@@ -22,3 +22,14 @@ formatting preference scores separately from functional correctness. The
 select-columns control previously saturated; passing it cannot establish uplift.
 A candidate comparison must use the same tasks, settings, and trial count with
 only local skill availability changed. Selection/discovery is a separate claim.
+
+Compare with the local skill, keeping the same Codex agent and settings:
+
+```sh
+harbor run --config evals/code-writing/with-skill.yaml --n-attempts 3
+```
+
+This condition installs the skill for normal discovery; the task requests do not
+explicitly invoke it. Inspect trajectories to verify that the agent reads it.
+
+The initial Codex comparison and its limits are in [RESULTS.md](RESULTS.md).

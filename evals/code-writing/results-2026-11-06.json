@@ -1,0 +1,389 @@
+{
+  "date": "2026-11-06",
+  "purpose": "Development/regression comparison; layout preference fidelity, not broad capability uplift",
+  "model": "openai/gpt-6.1-terra",
+  "codex_version": "0.166.0",
+  "conditions": {
+    "baseline": {
+      "job": "code-writing-baseline-20261106",
+      "stats": {
+        "n_completed_trials": 9,
+        "n_errored_trials": 0,
+        "n_input_tokens": 645709,
+        "n_cache_tokens": 589312,
+        "n_output_tokens": 6823
+      },
+      "trials": [
+        {
+          "task": "format-go",
+          "trial": "format-go__3QddR9q",
+          "reward": 1.0,
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 1.0,
+            "immediate_error_check_kept_together": 1.0
+          },
+          "skill_read": false,
+          "agent_execution_seconds": 21.353,
+          "tokens": {
+            "n_input_tokens": 58006,
+            "n_cache_tokens": 56832,
+            "n_output_tokens": 625
+          },
+          "task_checksum": "c410a71c5dc5c3b43af273892e08bd8fa19f06c43e43ae9e4e57b59d08c5743f"
+        },
+        {
+          "task": "format-go",
+          "trial": "format-go__WPoCqrS",
+          "reward": 1.0,
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 1.0,
+            "immediate_error_check_kept_together": 1.0
+          },
+          "skill_read": false,
+          "agent_execution_seconds": 16.856,
+          "tokens": {
+            "n_input_tokens": 43614,
+            "n_cache_tokens": 38272,
+            "n_output_tokens": 523
+          },
+          "task_checksum": "c410a71c5dc5c3b43af273892e08bd8fa19f06c43e43ae9e4e57b59d08c5743f"
+        },
+        {
+          "task": "format-go",
+          "trial": "format-go__tddpwfK",
+          "reward": 1.0,
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 1.0,
+            "immediate_error_check_kept_together": 1.0
+          },
+          "skill_read": false,
+          "agent_execution_seconds": 23.644,
+          "tokens": {
+            "n_input_tokens": 72650,
+            "n_cache_tokens": 66688,
+            "n_output_tokens": 726
+          },
+          "task_checksum": "c410a71c5dc5c3b43af273892e08bd8fa19f06c43e43ae9e4e57b59d08c5743f"
+        },
+        {
+          "task": "format-typescript",
+          "trial": "format-typescript__8A8snJS",
+          "reward": 0.0,
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 1.0,
+            "initialization_kept_with_assignment": 0.0
+          },
+          "skill_read": false,
+          "agent_execution_seconds": 19.124,
+          "tokens": {
+            "n_input_tokens": 71919,
+            "n_cache_tokens": 67072,
+            "n_output_tokens": 478
+          },
+          "task_checksum": "4cfacf70b8a6e0d11bd25735bbdbbf9563284e34bee496b4b3d99de112e9b4ae"
+        },
+        {
+          "task": "format-typescript",
+          "trial": "format-typescript__GCrYuw6",
+          "reward": 0.0,
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 0.0,
+            "initialization_kept_with_assignment": 1.0
+          },
+          "skill_read": false,
+          "agent_execution_seconds": 18.067,
+          "tokens": {
+            "n_input_tokens": 58859,
+            "n_cache_tokens": 54528,
+            "n_output_tokens": 358
+          },
+          "task_checksum": "4cfacf70b8a6e0d11bd25735bbdbbf9563284e34bee496b4b3d99de112e9b4ae"
+        },
+        {
+          "task": "format-typescript",
+          "trial": "format-typescript__GSvTdoE",
+          "reward": 0.0,
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 0.0,
+            "initialization_kept_with_assignment": 1.0
+          },
+          "skill_read": false,
+          "agent_execution_seconds": 15.208,
+          "tokens": {
+            "n_input_tokens": 58848,
+            "n_cache_tokens": 54528,
+            "n_output_tokens": 342
+          },
+          "task_checksum": "4cfacf70b8a6e0d11bd25735bbdbbf9563284e34bee496b4b3d99de112e9b4ae"
+        },
+        {
+          "task": "select-columns",
+          "trial": "select-columns__WJbmwAp",
+          "reward": 1.0,
+          "criteria": {
+            "compatibility": 1.0,
+            "selected_exports": 1.0,
+            "boundary_errors": 1.0,
+            "shared_policy": 1.0,
+            "behavioral_regression_tests": 1.0,
+            "fixture_integrity": 1.0
+          },
+          "skill_read": false,
+          "agent_execution_seconds": 46.964,
+          "tokens": {
+            "n_input_tokens": 93465,
+            "n_cache_tokens": 85632,
+            "n_output_tokens": 1201
+          },
+          "task_checksum": "463eb984f4d20742a11dacf91af61881016c52744f7756a2b7327500465a83c0"
+        },
+        {
+          "task": "select-columns",
+          "trial": "select-columns__hokU8Qa",
+          "reward": 1.0,
+          "criteria": {
+            "compatibility": 1.0,
+            "selected_exports": 1.0,
+            "boundary_errors": 1.0,
+            "shared_policy": 1.0,
+            "behavioral_regression_tests": 1.0,
+            "fixture_integrity": 1.0
+          },
+          "skill_read": false,
+          "agent_execution_seconds": 57.31,
+          "tokens": {
+            "n_input_tokens": 94801,
+            "n_cache_tokens": 83072,
+            "n_output_tokens": 1360
+          },
+          "task_checksum": "463eb984f4d20742a11dacf91af61881016c52744f7756a2b7327500465a83c0"
+        },
+        {
+          "task": "select-columns",
+          "trial": "select-columns__wKuU4Ns",
+          "reward": 1.0,
+          "criteria": {
+            "compatibility": 1.0,
+            "selected_exports": 1.0,
+            "boundary_errors": 1.0,
+            "shared_policy": 1.0,
+            "behavioral_regression_tests": 1.0,
+            "fixture_integrity": 1.0
+          },
+          "skill_read": false,
+          "agent_execution_seconds": 37.437,
+          "tokens": {
+            "n_input_tokens": 93547,
+            "n_cache_tokens": 82688,
+            "n_output_tokens": 1210
+          },
+          "task_checksum": "463eb984f4d20742a11dacf91af61881016c52744f7756a2b7327500465a83c0"
+        }
+      ]
+    },
+    "with-skill": {
+      "job": "code-writing-with-skill-20261106",
+      "stats": {
+        "n_completed_trials": 9,
+        "n_errored_trials": 0,
+        "n_input_tokens": 689915,
+        "n_cache_tokens": 628864,
+        "n_output_tokens": 8082
+      },
+      "trials": [
+        {
+          "task": "format-go",
+          "trial": "format-go__BFh3qAD",
+          "reward": 1.0,
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 1.0,
+            "immediate_error_check_kept_together": 1.0
+          },
+          "skill_read": true,
+          "agent_execution_seconds": 22.94,
+          "tokens": {
+            "n_input_tokens": 61728,
+            "n_cache_tokens": 54656,
+            "n_output_tokens": 650
+          },
+          "task_checksum": "c410a71c5dc5c3b43af273892e08bd8fa19f06c43e43ae9e4e57b59d08c5743f"
+        },
+        {
+          "task": "format-go",
+          "trial": "format-go__HxVGJkz",
+          "reward": 1.0,
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 1.0,
+            "immediate_error_check_kept_together": 1.0
+          },
+          "skill_read": true,
+          "agent_execution_seconds": 23.471,
+          "tokens": {
+            "n_input_tokens": 60601,
+            "n_cache_tokens": 54144,
+            "n_output_tokens": 771
+          },
+          "task_checksum": "c410a71c5dc5c3b43af273892e08bd8fa19f06c43e43ae9e4e57b59d08c5743f"
+        },
+        {
+          "task": "format-go",
+          "trial": "format-go__ZPjyA26",
+          "reward": 1.0,
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 1.0,
+            "immediate_error_check_kept_together": 1.0
+          },
+          "skill_read": true,
+          "agent_execution_seconds": 25.034,
+          "tokens": {
+            "n_input_tokens": 61189,
+            "n_cache_tokens": 53504,
+            "n_output_tokens": 837
+          },
+          "task_checksum": "c410a71c5dc5c3b43af273892e08bd8fa19f06c43e43ae9e4e57b59d08c5743f"
+        },
+        {
+          "task": "format-typescript",
+          "trial": "format-typescript__JZzypbK",
+          "reward": 1.0,
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 1.0,
+            "initialization_kept_with_assignment": 1.0
+          },
+          "skill_read": true,
+          "agent_execution_seconds": 22.339,
+          "tokens": {
+            "n_input_tokens": 60026,
+            "n_cache_tokens": 56704,
+            "n_output_tokens": 551
+          },
+          "task_checksum": "4cfacf70b8a6e0d11bd25735bbdbbf9563284e34bee496b4b3d99de112e9b4ae"
+        },
+        {
+          "task": "format-typescript",
+          "trial": "format-typescript__NAhRBwB",
+          "reward": 1.0,
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 1.0,
+            "initialization_kept_with_assignment": 1.0
+          },
+          "skill_read": true,
+          "agent_execution_seconds": 22.023,
+          "tokens": {
+            "n_input_tokens": 75369,
+            "n_cache_tokens": 66560,
+            "n_output_tokens": 635
+          },
+          "task_checksum": "4cfacf70b8a6e0d11bd25735bbdbbf9563284e34bee496b4b3d99de112e9b4ae"
+        },
+        {
+          "task": "format-typescript",
+          "trial": "format-typescript__ygCkaqE",
+          "reward": 1.0,
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 1.0,
+            "initialization_kept_with_assignment": 1.0
+          },
+          "skill_read": true,
+          "agent_execution_seconds": 16.072,
+          "tokens": {
+            "n_input_tokens": 61057,
+            "n_cache_tokens": 56064,
+            "n_output_tokens": 396
+          },
+          "task_checksum": "4cfacf70b8a6e0d11bd25735bbdbbf9563284e34bee496b4b3d99de112e9b4ae"
+        },
+        {
+          "task": "select-columns",
+          "trial": "select-columns__CwHJyZA",
+          "reward": 1.0,
+          "criteria": {
+            "compatibility": 1.0,
+            "selected_exports": 1.0,
+            "boundary_errors": 1.0,
+            "shared_policy": 1.0,
+            "behavioral_regression_tests": 1.0,
+            "fixture_integrity": 1.0
+          },
+          "skill_read": true,
+          "agent_execution_seconds": 46.738,
+          "tokens": {
+            "n_input_tokens": 131691,
+            "n_cache_tokens": 124032,
+            "n_output_tokens": 1603
+          },
+          "task_checksum": "463eb984f4d20742a11dacf91af61881016c52744f7756a2b7327500465a83c0"
+        },
+        {
+          "task": "select-columns",
+          "trial": "select-columns__S6uuxx5",
+          "reward": 1.0,
+          "criteria": {
+            "compatibility": 1.0,
+            "selected_exports": 1.0,
+            "boundary_errors": 1.0,
+            "shared_policy": 1.0,
+            "behavioral_regression_tests": 1.0,
+            "fixture_integrity": 1.0
+          },
+          "skill_read": true,
+          "agent_execution_seconds": 35.544,
+          "tokens": {
+            "n_input_tokens": 98178,
+            "n_cache_tokens": 87680,
+            "n_output_tokens": 1305
+          },
+          "task_checksum": "463eb984f4d20742a11dacf91af61881016c52744f7756a2b7327500465a83c0"
+        },
+        {
+          "task": "select-columns",
+          "trial": "select-columns__VMWJN6o",
+          "reward": 1.0,
+          "criteria": {
+            "compatibility": 1.0,
+            "selected_exports": 1.0,
+            "boundary_errors": 1.0,
+            "shared_policy": 1.0,
+            "behavioral_regression_tests": 1.0,
+            "fixture_integrity": 1.0
+          },
+          "skill_read": true,
+          "agent_execution_seconds": 35.683,
+          "tokens": {
+            "n_input_tokens": 80076,
+            "n_cache_tokens": 75520,
+            "n_output_tokens": 1334
+          },
+          "task_checksum": "463eb984f4d20742a11dacf91af61881016c52744f7756a2b7327500465a83c0"
+        }
+      ]
+    }
+  },
+  "skill_sha256": "c9ba78196691da23d22c2658d8c6f3394c7157e67f00aeb0005c77185dfaf38f",
+  "evaluated_skill_sha256": "fd060a9a4c9f207eba90f5cbb08a073720ac7467d2f45cd6d6b06c984123001b",
+  "post_evaluation_changes": "Skill whitespace only: wrapped two long lines and removed the extra blank line at EOF. Wording unchanged."
+}

@@ -13,8 +13,8 @@ are deterministic and run offline in a separate Reward Kit verifier.
 
 The formatting fixtures retain comments and string literals exactly when comparing
 tokens. Layout scores are preference fidelity; behavior and preservation are
-reported separately. No hidden general code-style standard is scored against a
-baseline that was not given it.
+reported separately. Baseline layout failures indicate a difference from
+Loadout's preferred grouping, not failure to follow a user-specified spacing rule.
 
 Acceptance decision: run three attempts per case before drafting a skill. An
 initial candidate must preserve all functional control scores and improve a

@@ -51,6 +51,7 @@ Restart your client and begin a new session after installing or updating.
 | --- | --- |
 | [code-review](skills/code-review/SKILL.md) | Reviews changes on request, scaling effort to risk, across correctness, readability, architecture, security, and performance. |
 | [code-simplification](skills/code-simplification/SKILL.md) | Simplifies working code for clarity while preserving behavior. |
+| [code-writing](skills/code-writing/SKILL.md) | Writes and changes code with clear data models, validated boundaries, shared policies, and logical paragraphs. |
 | [creating-skills](skills/creating-skills/SKILL.md) | Structures agent skills: layout, frontmatter, descriptions, and final review. |
 | [debugging-and-error-recovery](skills/debugging-and-error-recovery/SKILL.md) | Traces failures to their root cause, repairs them, and verifies the result. |
 | [documentation](skills/documentation/SKILL.md) | Writes and maintains technical documentation, cutting clutter while preserving facts and decision rationale. |
