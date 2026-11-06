@@ -1,0 +1,14 @@
+tasks:
+  - path: evals/work-shaping/tasks/discovery-gate
+  - path: evals/work-shaping/tasks/large-export
+agents:
+  - name: codex
+    model_name: openai/gpt-6.1-terra
+    resume_trajectory: true
+    kwargs:
+      version: "0.166.0"
+    env:
+      CODEX_FORCE_AUTH_JSON: "1"
+    skills:
+      - ./skills/work-shaping
+n_concurrent_trials: 16

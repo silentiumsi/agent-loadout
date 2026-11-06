@@ -61,6 +61,7 @@ Restart your client and begin a new session after installing or updating.
 | [interactive-writing](skills/interactive-writing/SKILL.md) | Writes with you as editor, in agreed increments with feedback between each. |
 | [obsidian](skills/obsidian/SKILL.md) | Finds, reads, and maintains notes in your local Obsidian vaults. |
 | [scratch](skills/scratch/SKILL.md) | Keeps disposable task files in a locally ignored `.scratch/` directory. |
+| [work-shaping](skills/work-shaping/SKILL.md) | Shapes work into small, sequenced drafts with rationale, types, parent relationships, and dependencies. |
 | [writing-for-agents](skills/writing-for-agents/SKILL.md) | Writes instructions agents read: AGENTS.md, slash commands, subagent prompts, handoff notes, and skill bodies. |
 | [writing-specs](skills/writing-specs/SKILL.md) | Writes specifications that humans and agents can understand, implement, and verify. |
 
