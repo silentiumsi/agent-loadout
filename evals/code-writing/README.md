@@ -7,6 +7,7 @@ Validate reference solutions and deliberate failures locally:
 
 ```sh
 python evals/code-writing/calibrate.py
+python evals/code-writing/tasks/format-state-module/calibrate.py
 python evals/code-writing/tasks/select-columns/calibration/check.py
 harbor run --config evals/code-writing/baseline.yaml --agent oracle
 ```
@@ -33,3 +34,5 @@ This condition installs the skill for normal discovery; the task requests do not
 explicitly invoke it. Inspect trajectories to verify that the agent reads it.
 
 The initial Codex comparison and its limits are in [RESULTS.md](RESULTS.md).
+The module-layout diagnostic and its limits are in
+[MODULE-LAYOUT-RESULTS.md](MODULE-LAYOUT-RESULTS.md).

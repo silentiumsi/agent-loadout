@@ -11,6 +11,11 @@ explicit repository conventions and the task's constraints take precedence.
 
 ## Logical Paragraphs
 
+Separate neighboring type/interface declarations, functions, and class methods
+with one blank line. Keep related fields together, with a blank line before the
+constructor or first method. Apply this to newly written code as well as edits;
+a formatter passing does not establish these boundaries.
+
 Group statements by immediate purpose. Within a function, separate distinct
 steps with exactly one blank line, such as validation, preparation, execution,
 and result handling. A change of purpose determines the boundary, even when
@@ -18,7 +23,25 @@ adjacent statements have the same syntax, such as independent conditional blocks
 
 Initialization and its immediate conditional assignment form one paragraph; an
 operation and its immediate error check form one paragraph. Avoid both
-uninterrupted walls of code and blank lines after every statement. Before finishing, read every changed function and correct
+uninterrupted walls of code and blank lines after every statement. Consecutive
+variable declarations may belong together: keep inputs for one operation in a
+group, then separate that preparation from execution and result handling.
+
+```ts
+const state = this.current;
+if (!state) return;
+
+const target = state.list;
+const cursor = more ? target.data?.cursor : undefined;
+const generation = target.generation;
+
+const next = await this.api.list(state.key, cursor);
+if (target.generation !== generation) return;
+
+target.data = next;
+```
+
+Before finishing, read changed code at both module and function scope and correct
 its grouping. For formatting-only work, preserve statements, identifiers,
 literals, comments, and behavior.
 

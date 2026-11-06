@@ -1,4 +1,5 @@
 tasks:
+  - path: evals/code-writing/tasks/format-state-module
   - path: evals/code-writing/tasks/format-go
   - path: evals/code-writing/tasks/format-typescript
   - path: evals/code-writing/tasks/select-columns

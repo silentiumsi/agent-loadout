@@ -1,0 +1,397 @@
+{
+  "date": "2026-11-06",
+  "purpose": "Diagnostic preference fidelity; no fresh-generation or revised-skill uplift claim",
+  "source_session": {
+    "id": "01a1b230-86f7-74d0-9567-dc69e10b3dea",
+    "model": "gpt-6.1-sol",
+    "cli_version": "0.166.0",
+    "skill_read_at": "2026-11-06T18:48:29Z",
+    "skill_version": "0.18.0"
+  },
+  "comparison": {
+    "model": "openai/gpt-6.1-terra",
+    "cli_version": "0.166.0",
+    "attempts_per_condition": 3,
+    "resume_trajectory": true,
+    "n_concurrent_trials": 16,
+    "rewardkit_version": "0.2.3",
+    "verifier": "separate, offline",
+    "discovery": "normal, not explicitly invoked"
+  },
+  "skills": {
+    "previous_git_revision": "bba8146a53a2a311e3ae3d450730394dfc764d74",
+    "previous_sha256": "c9ba78196691da23d22c2658d8c6f3394c7157e67f00aeb0005c77185dfaf38f",
+    "candidate_evaluated_sha256": "c35d2cd5178bef255dcf5ffc529cb160713127bc29c3f8cb01d1f9bddb072802",
+    "final_sha256": "655db165c844c754fa6bcba22fc163e9a56b851f858450dbf877d012b507a0a9",
+    "post_comparison_change": "Define generation in the illustrative snippet; regression controls use the final version."
+  },
+  "conditions": {
+    "observed-failure": {
+      "job": "jobs/module-layout-observed-failure-20261106",
+      "trials": [
+        {
+          "trial": "format-state-module__7niMMdY",
+          "task": "silentiumsi/code-writing-format-state-module",
+          "task_checksum": "58c907606f991e47780de8868afc496d4d5fc69cda880bf496ff565cd2992380",
+          "reward": {
+            "reward": 0.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "declarations_separated": 0.0,
+            "members_separated": 0.0,
+            "independent_steps_separated": 0.0,
+            "related_statements_together": 1.0
+          }
+        }
+      ]
+    },
+    "oracle": {
+      "job": "jobs/module-layout-oracle-20261106",
+      "trials": [
+        {
+          "trial": "format-state-module__S5UGo6Y",
+          "task": "silentiumsi/code-writing-format-state-module",
+          "task_checksum": "58c907606f991e47780de8868afc496d4d5fc69cda880bf496ff565cd2992380",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "declarations_separated": 1.0,
+            "members_separated": 1.0,
+            "independent_steps_separated": 1.0,
+            "related_statements_together": 1.0
+          }
+        }
+      ]
+    },
+    "baseline": {
+      "job": "jobs/module-layout-baseline-20261106",
+      "trials": [
+        {
+          "trial": "format-state-module__7vKBMgW",
+          "task": "silentiumsi/code-writing-format-state-module",
+          "task_checksum": "58c907606f991e47780de8868afc496d4d5fc69cda880bf496ff565cd2992380",
+          "reward": {
+            "reward": 0.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "declarations_separated": 1.0,
+            "members_separated": 1.0,
+            "independent_steps_separated": 0.0,
+            "related_statements_together": 1.0
+          },
+          "skill_read_in_trace": false
+        },
+        {
+          "trial": "format-state-module__JycUHPa",
+          "task": "silentiumsi/code-writing-format-state-module",
+          "task_checksum": "58c907606f991e47780de8868afc496d4d5fc69cda880bf496ff565cd2992380",
+          "reward": {
+            "reward": 0.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "declarations_separated": 1.0,
+            "members_separated": 1.0,
+            "independent_steps_separated": 0.0,
+            "related_statements_together": 1.0
+          },
+          "skill_read_in_trace": false
+        },
+        {
+          "trial": "format-state-module__n5wZC2w",
+          "task": "silentiumsi/code-writing-format-state-module",
+          "task_checksum": "58c907606f991e47780de8868afc496d4d5fc69cda880bf496ff565cd2992380",
+          "reward": {
+            "reward": 0.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "declarations_separated": 1.0,
+            "members_separated": 0.0,
+            "independent_steps_separated": 0.0,
+            "related_statements_together": 1.0
+          },
+          "skill_read_in_trace": false
+        }
+      ]
+    },
+    "previous": {
+      "job": "jobs/module-layout-previous-20261106",
+      "trials": [
+        {
+          "trial": "format-state-module__JF9vohX",
+          "task": "silentiumsi/code-writing-format-state-module",
+          "task_checksum": "58c907606f991e47780de8868afc496d4d5fc69cda880bf496ff565cd2992380",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "declarations_separated": 1.0,
+            "members_separated": 1.0,
+            "independent_steps_separated": 1.0,
+            "related_statements_together": 1.0
+          },
+          "skill_read_in_trace": true
+        },
+        {
+          "trial": "format-state-module__bE22YhH",
+          "task": "silentiumsi/code-writing-format-state-module",
+          "task_checksum": "58c907606f991e47780de8868afc496d4d5fc69cda880bf496ff565cd2992380",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "declarations_separated": 1.0,
+            "members_separated": 1.0,
+            "independent_steps_separated": 1.0,
+            "related_statements_together": 1.0
+          },
+          "skill_read_in_trace": true
+        },
+        {
+          "trial": "format-state-module__ttLkrTF",
+          "task": "silentiumsi/code-writing-format-state-module",
+          "task_checksum": "58c907606f991e47780de8868afc496d4d5fc69cda880bf496ff565cd2992380",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "declarations_separated": 1.0,
+            "members_separated": 1.0,
+            "independent_steps_separated": 1.0,
+            "related_statements_together": 1.0
+          },
+          "skill_read_in_trace": true
+        }
+      ]
+    },
+    "candidate": {
+      "job": "jobs/module-layout-candidate-20261106",
+      "trials": [
+        {
+          "trial": "format-state-module__QoUnZ7C",
+          "task": "silentiumsi/code-writing-format-state-module",
+          "task_checksum": "58c907606f991e47780de8868afc496d4d5fc69cda880bf496ff565cd2992380",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "declarations_separated": 1.0,
+            "members_separated": 1.0,
+            "independent_steps_separated": 1.0,
+            "related_statements_together": 1.0
+          },
+          "skill_read_in_trace": true
+        },
+        {
+          "trial": "format-state-module__bsiXhB7",
+          "task": "silentiumsi/code-writing-format-state-module",
+          "task_checksum": "58c907606f991e47780de8868afc496d4d5fc69cda880bf496ff565cd2992380",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "declarations_separated": 1.0,
+            "members_separated": 1.0,
+            "independent_steps_separated": 1.0,
+            "related_statements_together": 1.0
+          },
+          "skill_read_in_trace": true
+        },
+        {
+          "trial": "format-state-module__ue6FuYK",
+          "task": "silentiumsi/code-writing-format-state-module",
+          "task_checksum": "58c907606f991e47780de8868afc496d4d5fc69cda880bf496ff565cd2992380",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "declarations_separated": 1.0,
+            "members_separated": 1.0,
+            "independent_steps_separated": 1.0,
+            "related_statements_together": 1.0
+          },
+          "skill_read_in_trace": true
+        }
+      ]
+    },
+    "regressions": {
+      "job": "jobs/module-layout-regressions-20261106",
+      "trials": [
+        {
+          "trial": "format-go__69DZmLr",
+          "task": "silentiumsi/code-writing-format-go",
+          "task_checksum": "c4a2dda53cb52c9aa0c29050f1d27a65c95935fc16e5eb0ed8e6b9457b1a1e11",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 1.0,
+            "immediate_error_check_kept_together": 1.0
+          },
+          "skill_read_in_trace": true
+        },
+        {
+          "trial": "format-go__Hy7mPwD",
+          "task": "silentiumsi/code-writing-format-go",
+          "task_checksum": "c4a2dda53cb52c9aa0c29050f1d27a65c95935fc16e5eb0ed8e6b9457b1a1e11",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 1.0,
+            "immediate_error_check_kept_together": 1.0
+          },
+          "skill_read_in_trace": true
+        },
+        {
+          "trial": "format-go__pVfVE9v",
+          "task": "silentiumsi/code-writing-format-go",
+          "task_checksum": "c4a2dda53cb52c9aa0c29050f1d27a65c95935fc16e5eb0ed8e6b9457b1a1e11",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 1.0,
+            "immediate_error_check_kept_together": 1.0
+          },
+          "skill_read_in_trace": true
+        },
+        {
+          "trial": "format-typescript__AXb2RRX",
+          "task": "silentiumsi/code-writing-format-typescript",
+          "task_checksum": "8920a5fb73671651b0069a6d2b59b4d7ad8c4991cf9507ea817ce95f5aba64ad",
+          "excluded_infrastructure_failure": "Docker subnet address pools exhausted before agent startup; replacement is regression-retry."
+        },
+        {
+          "trial": "format-typescript__bAwo2gm",
+          "task": "silentiumsi/code-writing-format-typescript",
+          "task_checksum": "8920a5fb73671651b0069a6d2b59b4d7ad8c4991cf9507ea817ce95f5aba64ad",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 1.0,
+            "initialization_kept_with_assignment": 1.0
+          },
+          "skill_read_in_trace": true
+        },
+        {
+          "trial": "format-typescript__myuMqVY",
+          "task": "silentiumsi/code-writing-format-typescript",
+          "task_checksum": "8920a5fb73671651b0069a6d2b59b4d7ad8c4991cf9507ea817ce95f5aba64ad",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 1.0,
+            "initialization_kept_with_assignment": 1.0
+          },
+          "skill_read_in_trace": true
+        },
+        {
+          "trial": "select-columns__LsT8fwM",
+          "task": "silentiumsi/code-writing-select-columns",
+          "task_checksum": "1338b2c2d82e8ddf12ab478f1043fb0752affed737fa57c4709f94feaa7aee50",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "compatibility": 1.0,
+            "selected_exports": 1.0,
+            "boundary_errors": 1.0,
+            "shared_policy": 1.0,
+            "behavioral_regression_tests": 1.0,
+            "fixture_integrity": 1.0
+          },
+          "skill_read_in_trace": true
+        },
+        {
+          "trial": "select-columns__akqtKgJ",
+          "task": "silentiumsi/code-writing-select-columns",
+          "task_checksum": "1338b2c2d82e8ddf12ab478f1043fb0752affed737fa57c4709f94feaa7aee50",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "compatibility": 1.0,
+            "selected_exports": 1.0,
+            "boundary_errors": 1.0,
+            "shared_policy": 1.0,
+            "behavioral_regression_tests": 1.0,
+            "fixture_integrity": 1.0
+          },
+          "skill_read_in_trace": true
+        },
+        {
+          "trial": "select-columns__oxzcNoQ",
+          "task": "silentiumsi/code-writing-select-columns",
+          "task_checksum": "1338b2c2d82e8ddf12ab478f1043fb0752affed737fa57c4709f94feaa7aee50",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "compatibility": 1.0,
+            "selected_exports": 1.0,
+            "boundary_errors": 1.0,
+            "shared_policy": 1.0,
+            "behavioral_regression_tests": 1.0,
+            "fixture_integrity": 1.0
+          },
+          "skill_read_in_trace": true
+        }
+      ]
+    },
+    "regression-retry": {
+      "job": "jobs/module-layout-regression-retry-20261106",
+      "trials": [
+        {
+          "trial": "format-typescript__oGw7swU",
+          "task": "silentiumsi/code-writing-format-typescript",
+          "task_checksum": "8920a5fb73671651b0069a6d2b59b4d7ad8c4991cf9507ea817ce95f5aba64ad",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 1.0,
+            "initialization_kept_with_assignment": 1.0
+          },
+          "skill_read_in_trace": true
+        }
+      ]
+    }
+  }
+}

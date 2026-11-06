@@ -1,7 +1,7 @@
 # Code-writing cases
 
-This initial diagnostic suite ports observed readability failures and an existing
-behavioral control from agent-sync. It does not estimate everyday failure rates
+This diagnostic suite covers observed readability failures and an existing
+behavioral control, including historical cases ported from agent-sync. It does not estimate everyday failure rates
 or establish broad code-design capability. Only Codex is configured; all checks
 are deterministic and run offline in a separate Reward Kit verifier.
 
@@ -9,6 +9,7 @@ are deterministic and run offline in a separate Reward Kit verifier.
 | --- | --- | --- |
 | format-go | Separate model setup from UI execution, retaining the immediate error check beside its operation. Preserve syntax and all other files. | agent-sync commit 2749753 (2026-10-14), recorded Codex gpt-6.1-sol result: independent-step separation failed. Ported original fixture and request. Checks two exact boundaries in a formatting-only task; no Go compilation or general readability judgment. |
 | format-typescript | Separate independent conditions; keep initialization beside its conditional assignment. Preserve syntax and all other files. | Same historical commit and model: initialization grouping failed. Ported original fixture and request. Checks two exact boundaries, including exactly one separating blank line; no TypeScript execution or general readability judgment. |
+| format-state-module | Separate top-level declarations and class members; separate cache lookup from selection, guards from work, accumulation from return, and request setup from execution. Keep lookup/guard and operation/staleness-check pairs together. Preserve tokens and other files. | Observed 2026-11-06 in a state module produced with Codex gpt-6.1-sol, CLI 0.166.0, after reading code-writing 0.18.0. The generic catalog-state reproduction fails all three layout groups before reformatting; the source project used a formatter. Checks exact fixture boundaries, not arbitrary module quality, compilation, or fresh generation. |
 | select-columns | Preserve CSV behavior, reuse shared field policy, validate before I/O, add observable CLI regression coverage. | agent-sync commit 3d82060 records both baseline and skill passing on 2026-10-29 with Codex gpt-6.1-terra. Retained as a functional control, not evidence of a failure or uplift. Existing mutation checks accept an equivalent CLI and reject reversed/ignored selections. Cannot detect unnecessary wrappers or establish domain-model quality. |
 
 The formatting fixtures retain comments and string literals exactly when comparing
@@ -24,3 +25,18 @@ set is claimed: these historical cases are development/regression cases.
 
 Invalid infrastructure attempts are excluded and rerun unchanged; agent timeouts
 remain failures. Never use a model result to calibrate its own grader.
+
+For format-state-module, the source session is
+`01a1b230-86f7-74d0-9567-dc69e10b3dea`: the 18:48:29 UTC tool call reads
+code-writing 0.18.0 before implementation. The fixture removes service-specific
+API types and retains the observed declaration, class-member, and statement
+layout. The original failure is evidence from implementation; this task asks for
+formatting and cannot reproduce implementation-time competing demands.
+
+Before revising guidance, compare three previous-skill and three candidate
+attempts on the same fixture and settings. Require all preservation checks to
+pass and more fully passing candidate attempts, with no regressions in the
+existing controls. If the previous skill already passes, report the reproduction
+as saturated rather than claiming measured improvement. Calibration tests each
+boundary independently, alternative indentation and line endings, and altered
+syntax/extra files. These checks measure preference fidelity, not behavior.
