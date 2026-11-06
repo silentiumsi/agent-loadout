@@ -1,0 +1,17 @@
+schema_version = "1.4"
+artifacts = ["/app/project"]
+[task]
+name = "silentiumsi/work-shaping-large-export"
+version = "1.0.0"
+description = "Shape bounded agent-ready work from an existing project."
+keywords = ["work-shaping", "rewardkit", "judge-grading"]
+[verifier]
+timeout_sec = 900.0
+environment_mode = "separate"
+[verifier.env]
+CLAUDE_CODE_OAUTH_TOKEN = "${CLAUDE_CODE_OAUTH_TOKEN}"
+[agent]
+timeout_sec = 900.0
+[environment]
+network_mode = "public"
+build_timeout_sec = 600.0

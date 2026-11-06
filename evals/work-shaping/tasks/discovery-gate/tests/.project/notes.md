@@ -1,0 +1,1 @@
+Current job fetches a full CSV nightly and calls crm/importer.py. CSV carries active contacts only. Deletion handling is absent. Database supports tenant-scoped upserts. Our vendor tier and API semantics have not been verified. Sales has not chosen whether 15-minute freshness applies outside business hours. No queue or webhook infrastructure exists.
