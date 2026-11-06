@@ -1,0 +1,13 @@
+tasks:
+  - path: evals/code-writing/tasks/format-go
+  - path: evals/code-writing/tasks/format-typescript
+  - path: evals/code-writing/tasks/select-columns
+agents:
+  - name: codex
+    model_name: openai/gpt-6.1-terra
+    resume_trajectory: true
+    kwargs:
+      version: "0.166.0"
+    env:
+      CODEX_FORCE_AUTH_JSON: "1"
+n_concurrent_trials: 16

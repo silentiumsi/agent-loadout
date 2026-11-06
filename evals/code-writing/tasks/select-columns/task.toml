@@ -1,0 +1,22 @@
+schema_version = "1.4"
+artifacts = ["/app/project"]
+
+[task]
+name = "silentiumsi/code-writing-select-columns"
+version = "1.0.1"
+description = "Add selectable CSV columns while preserving shared field policy and observable behavior."
+keywords = ["skills", "python", "csv", "rewardkit"]
+
+[verifier]
+timeout_sec = 120.0
+environment_mode = "separate"
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 600.0
+
+[verifier.environment]
+network_mode = "no-network"
