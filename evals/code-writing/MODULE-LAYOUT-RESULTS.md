@@ -1,5 +1,9 @@
 # Module layout diagnostic, 2026-11-06
 
+A later feature-edit diagnostic is recorded in
+[PAGINATION-RESULTS.md](PAGINATION-RESULTS.md); the results below describe the
+earlier explicit-formatting experiment.
+
 The implementation failure is real, but the explicit reformatting task did not
 reproduce it in three previous-skill attempts. The previous and revised
 skills both pass all three attempts on the generic state-module formatting task.

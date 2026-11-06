@@ -1,0 +1,943 @@
+{
+  "date": "2026-11-06",
+  "purpose": "Development diagnostic: preference fidelity during a functional feature edit; no held-out or representative claim",
+  "settings": {
+    "model": "openai/gpt-6.1-terra",
+    "codex_version": "0.166.0",
+    "attempts_per_condition": 3,
+    "resume_trajectory": true,
+    "comparison_config_concurrency": 16,
+    "comparison_actual_max_trials": 12,
+    "controls_concurrency": 8,
+    "controls_concurrency_reason": "Existing host Docker subnet pressure",
+    "rewardkit": "0.2.3",
+    "typescript": "5.9.3",
+    "node_verifier": "22.16.0",
+    "verifier": "separate, offline",
+    "discovery": "normal; only code-writing available"
+  },
+  "skills": {
+    "previous": {
+      "sha256": "c9ba78196691da23d22c2658d8c6f3394c7157e67f00aeb0005c77185dfaf38f",
+      "git_revision": "bba8146a53a2a311e3ae3d450730394dfc764d74"
+    },
+    "first-revision": {
+      "sha256": "655db165c844c754fa6bcba22fc163e9a56b851f858450dbf877d012b507a0a9",
+      "git_revision": "5a9ad25"
+    },
+    "candidate": {
+      "sha256": "f75f6f4ac62ba310ecc8ec82436094f863efa925814e4605e2a8e0e813751e6d"
+    }
+  },
+  "initial_comparison": {
+    "baseline": {
+      "job": "jobs/pagination-baseline-20261106",
+      "trials": [
+        {
+          "trial": "paginate-state-module__3Y93DTV",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "4f17c3f76428eb840ea657d12ccd800151cb01620841983bc99a4357f86430de",
+          "reward": {
+            "reward": 0.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 0.0,
+            "members_separated": 0.0
+          },
+          "skill_read_in_trace": false,
+          "usage": {
+            "n_input_tokens": 91678,
+            "n_cache_tokens": 84480,
+            "n_output_tokens": 1408,
+            "cost_usd": 0.018462
+          },
+          "agent_seconds": 42.198063,
+          "submitted_state_sha256": "dc31fc8d382d94b05045cea01b8a51cf23292aceeb490fca22a51fd9086a8d4e"
+        },
+        {
+          "trial": "paginate-state-module__oGSUMFV",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "4f17c3f76428eb840ea657d12ccd800151cb01620841983bc99a4357f86430de",
+          "reward": {
+            "reward": 0.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 0.0,
+            "members_separated": 0.0
+          },
+          "skill_read_in_trace": false,
+          "usage": {
+            "n_input_tokens": 75718,
+            "n_cache_tokens": 68608,
+            "n_output_tokens": 1240,
+            "cost_usd": 0.0167404
+          },
+          "agent_seconds": 34.599966,
+          "submitted_state_sha256": "23da5ef68ea2ab7799e7b0e2dcda6fe02c178306f08908a29d0568360332a304"
+        },
+        {
+          "trial": "paginate-state-module__ycivZqt",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "4f17c3f76428eb840ea657d12ccd800151cb01620841983bc99a4357f86430de",
+          "reward": {
+            "reward": 0.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 0.0,
+            "members_separated": 0.0
+          },
+          "skill_read_in_trace": false,
+          "usage": {
+            "n_input_tokens": 139531,
+            "n_cache_tokens": 132864,
+            "n_output_tokens": 1542,
+            "cost_usd": 0.021020200000000003
+          },
+          "agent_seconds": 43.236272,
+          "submitted_state_sha256": "145cecacddba1872fdd8d0f63994670ec6ed0e03497a63c4380f3823e5a56f18"
+        }
+      ],
+      "median_agent_seconds": 42.198063
+    },
+    "previous": {
+      "job": "jobs/pagination-previous-20261106",
+      "trials": [
+        {
+          "trial": "paginate-state-module__24ohn7s",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "4f17c3f76428eb840ea657d12ccd800151cb01620841983bc99a4357f86430de",
+          "reward": {
+            "reward": 0.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 0.0,
+            "members_separated": 0.0
+          },
+          "skill_read_in_trace": true,
+          "exact_skill_content_read": true,
+          "usage": {
+            "n_input_tokens": 81019,
+            "n_cache_tokens": 76160,
+            "n_output_tokens": 1671,
+            "cost_usd": 0.017022
+          },
+          "agent_seconds": 42.123327,
+          "submitted_state_sha256": "a76e508a6d3560a2bad940775bc969b086a1bb56f44cb2eb794d6658449741d1"
+        },
+        {
+          "trial": "paginate-state-module__kdqn33X",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "4f17c3f76428eb840ea657d12ccd800151cb01620841983bc99a4357f86430de",
+          "reward": {
+            "reward": 0.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 0.0,
+            "members_separated": 0.0
+          },
+          "skill_read_in_trace": true,
+          "exact_skill_content_read": true,
+          "usage": {
+            "n_input_tokens": 95484,
+            "n_cache_tokens": 89600,
+            "n_output_tokens": 1534,
+            "cost_usd": 0.018033999999999998
+          },
+          "agent_seconds": 43.571558,
+          "submitted_state_sha256": "50e3cca0cc5e1f91f33fcb32419d981520ae5bb06c1f4f2e96c0286166c416a8"
+        },
+        {
+          "trial": "paginate-state-module__sxiNtma",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "4f17c3f76428eb840ea657d12ccd800151cb01620841983bc99a4357f86430de",
+          "reward": {
+            "reward": 0.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 0.0,
+            "members_separated": 0.0
+          },
+          "skill_read_in_trace": true,
+          "exact_skill_content_read": true,
+          "usage": {
+            "n_input_tokens": 113882,
+            "n_cache_tokens": 100992,
+            "n_output_tokens": 2089,
+            "cost_usd": 0.0283846
+          },
+          "agent_seconds": 53.823046,
+          "submitted_state_sha256": "50e3cca0cc5e1f91f33fcb32419d981520ae5bb06c1f4f2e96c0286166c416a8"
+        }
+      ],
+      "median_agent_seconds": 43.571558
+    },
+    "candidate": {
+      "job": "jobs/pagination-candidate-20261106",
+      "trials": [
+        {
+          "trial": "paginate-state-module__3VN2z8r",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "4f17c3f76428eb840ea657d12ccd800151cb01620841983bc99a4357f86430de",
+          "reward": {
+            "reward": 0.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 0.0,
+            "members_separated": 0.0
+          },
+          "skill_read_in_trace": true,
+          "exact_skill_content_read": true,
+          "usage": {
+            "n_input_tokens": 97328,
+            "n_cache_tokens": 94080,
+            "n_output_tokens": 1461,
+            "cost_usd": 0.015256999999999998
+          },
+          "agent_seconds": 38.971588,
+          "submitted_state_sha256": "e55ee9d8b0b9928c5e89f3163fe5461e746e3ae39d7fa54c98b45faaa6a531c9"
+        },
+        {
+          "trial": "paginate-state-module__5pafRa9",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "4f17c3f76428eb840ea657d12ccd800151cb01620841983bc99a4357f86430de",
+          "reward": {
+            "reward": 0.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 0.0,
+            "members_separated": 0.0
+          },
+          "skill_read_in_trace": true,
+          "exact_skill_content_read": true,
+          "usage": {
+            "n_input_tokens": 99237,
+            "n_cache_tokens": 95104,
+            "n_output_tokens": 1437,
+            "cost_usd": 0.016073200000000003
+          },
+          "agent_seconds": 38.372707,
+          "submitted_state_sha256": "01e7fb3cf4b9331535f58fe12c58bc37c796b427ebb9faa2bff2c15ecb804b9e"
+        },
+        {
+          "trial": "paginate-state-module__9tkCKmM",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "4f17c3f76428eb840ea657d12ccd800151cb01620841983bc99a4357f86430de",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 1.0,
+            "members_separated": 1.0
+          },
+          "skill_read_in_trace": true,
+          "exact_skill_content_read": true,
+          "usage": {
+            "n_input_tokens": 97157,
+            "n_cache_tokens": 89856,
+            "n_output_tokens": 1621,
+            "cost_usd": 0.0198988
+          },
+          "agent_seconds": 43.0201,
+          "submitted_state_sha256": "1947729d34a6aa7dfecb86a770a7e948551927d4655ad1a5d28b03cb3a16f6bb"
+        }
+      ],
+      "median_agent_seconds": 38.971588
+    }
+  },
+  "corrected_comparison": {
+    "baseline": {
+      "job": "jobs/pagination-v11-baseline-20261106",
+      "trials": [
+        {
+          "trial": "paginate-state-module__g8DNCLN",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "8f90abacc9cacae749232ac71f0fb415801ba250aa1e5ef8a06e3806c80cc646",
+          "reward": {
+            "reward": 0.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "public_types_preserved": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 0.0,
+            "members_separated": 0.0
+          },
+          "skill_read_in_trace": false,
+          "usage": {
+            "n_input_tokens": 108305,
+            "n_cache_tokens": 103680,
+            "n_output_tokens": 1687,
+            "cost_usd": 0.018244
+          },
+          "agent_seconds": 45.591718,
+          "submitted_state_sha256": "a09a68d3e8a81979d6c5a4cc27faebdb6ceb70352f9404083be1f5d7c2e38d04"
+        },
+        {
+          "trial": "paginate-state-module__swqmpMi",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "8f90abacc9cacae749232ac71f0fb415801ba250aa1e5ef8a06e3806c80cc646",
+          "reward": {
+            "reward": 0.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "public_types_preserved": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 0.0,
+            "members_separated": 0.0
+          },
+          "skill_read_in_trace": false,
+          "usage": {
+            "n_input_tokens": 115621,
+            "n_cache_tokens": 109568,
+            "n_output_tokens": 1943,
+            "cost_usd": 0.021246400000000002
+          },
+          "agent_seconds": 48.73704,
+          "submitted_state_sha256": "006b2b1e5728c07cf627f30839b8aee6486c5c5387244f07ace411078cb2e2d2"
+        },
+        {
+          "trial": "paginate-state-module__wxqfaCd",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "8f90abacc9cacae749232ac71f0fb415801ba250aa1e5ef8a06e3806c80cc646",
+          "reward": {
+            "reward": 0.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "public_types_preserved": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 0.0,
+            "members_separated": 0.0
+          },
+          "skill_read_in_trace": false,
+          "usage": {
+            "n_input_tokens": 92885,
+            "n_cache_tokens": 83968,
+            "n_output_tokens": 1649,
+            "cost_usd": 0.021360399999999998
+          },
+          "agent_seconds": 46.591922,
+          "submitted_state_sha256": "50e3cca0cc5e1f91f33fcb32419d981520ae5bb06c1f4f2e96c0286166c416a8"
+        }
+      ],
+      "median_agent_seconds": 46.591922
+    },
+    "previous": {
+      "job": "jobs/pagination-v11-previous-20261106",
+      "trials": [
+        {
+          "trial": "paginate-state-module__dvdLsmZ",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "8f90abacc9cacae749232ac71f0fb415801ba250aa1e5ef8a06e3806c80cc646",
+          "reward": {
+            "reward": 0.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "public_types_preserved": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 0.0,
+            "members_separated": 0.0
+          },
+          "skill_read_in_trace": true,
+          "exact_skill_content_read": true,
+          "usage": {
+            "n_input_tokens": 130171,
+            "n_cache_tokens": 127232,
+            "n_output_tokens": 2234,
+            "cost_usd": 0.0204706
+          },
+          "agent_seconds": 56.031652,
+          "submitted_state_sha256": "08f9812babd1f4600800633919135c81e92ef47fc2f28497cdbe5cf450c979e7"
+        },
+        {
+          "trial": "paginate-state-module__pTxxdfa",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "8f90abacc9cacae749232ac71f0fb415801ba250aa1e5ef8a06e3806c80cc646",
+          "reward": {
+            "reward": 0.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "public_types_preserved": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 0.0,
+            "members_separated": 0.0
+          },
+          "skill_read_in_trace": true,
+          "exact_skill_content_read": true,
+          "usage": {
+            "n_input_tokens": 94790,
+            "n_cache_tokens": 85632,
+            "n_output_tokens": 1459,
+            "cost_usd": 0.0207346
+          },
+          "agent_seconds": 42.248671,
+          "submitted_state_sha256": "50e3cca0cc5e1f91f33fcb32419d981520ae5bb06c1f4f2e96c0286166c416a8"
+        },
+        {
+          "trial": "paginate-state-module__zoLNnoG",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "8f90abacc9cacae749232ac71f0fb415801ba250aa1e5ef8a06e3806c80cc646",
+          "reward": {
+            "reward": 0.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "public_types_preserved": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 0.0,
+            "members_separated": 0.0
+          },
+          "skill_read_in_trace": true,
+          "exact_skill_content_read": true,
+          "usage": {
+            "n_input_tokens": 95839,
+            "n_cache_tokens": 84480,
+            "n_output_tokens": 1600,
+            "cost_usd": 0.023583
+          },
+          "agent_seconds": 41.286257,
+          "submitted_state_sha256": "50e3cca0cc5e1f91f33fcb32419d981520ae5bb06c1f4f2e96c0286166c416a8"
+        }
+      ],
+      "median_agent_seconds": 42.248671
+    },
+    "first-revision": {
+      "job": "jobs/pagination-v11-first-revision-20261106",
+      "trials": [
+        {
+          "trial": "paginate-state-module__2N4hd6H",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "8f90abacc9cacae749232ac71f0fb415801ba250aa1e5ef8a06e3806c80cc646",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "public_types_preserved": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 1.0,
+            "members_separated": 1.0
+          },
+          "skill_read_in_trace": true,
+          "exact_skill_content_read": true,
+          "usage": {
+            "n_input_tokens": 81626,
+            "n_cache_tokens": 73216,
+            "n_output_tokens": 1596,
+            "cost_usd": 0.0200508
+          },
+          "agent_seconds": 39.414478,
+          "submitted_state_sha256": "5babbc7ad6565d4a2c6470573a3754e3f31328182130380f46c2c57732269d60"
+        },
+        {
+          "trial": "paginate-state-module__3qxAr6F",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "8f90abacc9cacae749232ac71f0fb415801ba250aa1e5ef8a06e3806c80cc646",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "public_types_preserved": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 1.0,
+            "members_separated": 1.0
+          },
+          "skill_read_in_trace": true,
+          "exact_skill_content_read": true,
+          "usage": {
+            "n_input_tokens": 133802,
+            "n_cache_tokens": 128256,
+            "n_output_tokens": 2491,
+            "cost_usd": 0.0244138
+          },
+          "agent_seconds": 59.689489,
+          "submitted_state_sha256": "66f232a629583f05582b26e902c369ea3460436b291f35b32d32ba0d7db629d1"
+        },
+        {
+          "trial": "paginate-state-module__5xP2THu",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "8f90abacc9cacae749232ac71f0fb415801ba250aa1e5ef8a06e3806c80cc646",
+          "reward": {
+            "reward": 0.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "public_types_preserved": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 0.0,
+            "members_separated": 0.0
+          },
+          "skill_read_in_trace": true,
+          "exact_skill_content_read": true,
+          "usage": {
+            "n_input_tokens": 114644,
+            "n_cache_tokens": 111360,
+            "n_output_tokens": 1476,
+            "cost_usd": 0.016232
+          },
+          "agent_seconds": 37.546311,
+          "submitted_state_sha256": "fddcc888baed2e8848f828d98f0bfb412427b7f10dc154536f8eb3837bd6af53"
+        }
+      ],
+      "median_agent_seconds": 39.414478
+    },
+    "candidate": {
+      "job": "jobs/pagination-v11-candidate-20261106",
+      "trials": [
+        {
+          "trial": "paginate-state-module__7db6LZf",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "8f90abacc9cacae749232ac71f0fb415801ba250aa1e5ef8a06e3806c80cc646",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "public_types_preserved": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 1.0,
+            "members_separated": 1.0
+          },
+          "skill_read_in_trace": true,
+          "exact_skill_content_read": true,
+          "usage": {
+            "n_input_tokens": 131791,
+            "n_cache_tokens": 110720,
+            "n_output_tokens": 2099,
+            "cost_usd": 0.037102
+          },
+          "agent_seconds": 58.20362,
+          "submitted_state_sha256": "a542ac1cc037371af8aa6133d20a2df2939750a610c2b0aa101ed9e7f5729bfa"
+        },
+        {
+          "trial": "paginate-state-module__PPtV2Wf",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "8f90abacc9cacae749232ac71f0fb415801ba250aa1e5ef8a06e3806c80cc646",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "public_types_preserved": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 1.0,
+            "members_separated": 1.0
+          },
+          "skill_read_in_trace": true,
+          "exact_skill_content_read": true,
+          "usage": {
+            "n_input_tokens": 98357,
+            "n_cache_tokens": 94976,
+            "n_output_tokens": 1752,
+            "cost_usd": 0.0168898
+          },
+          "agent_seconds": 48.431098,
+          "submitted_state_sha256": "e2322e1c658f56a6b8fae6cff1e6284590b3435cf72d78f0a3ee929fb7106e56"
+        },
+        {
+          "trial": "paginate-state-module__hh82K3j",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "8f90abacc9cacae749232ac71f0fb415801ba250aa1e5ef8a06e3806c80cc646",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "public_types_preserved": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 1.0,
+            "members_separated": 1.0
+          },
+          "skill_read_in_trace": true,
+          "exact_skill_content_read": true,
+          "usage": {
+            "n_input_tokens": 116002,
+            "n_cache_tokens": 97664,
+            "n_output_tokens": 1881,
+            "cost_usd": 0.0326262
+          },
+          "agent_seconds": 50.825975,
+          "submitted_state_sha256": "fbdebd8fbf1acd1d53e7932da366a6534e2a816dbe6fbbbd1e59bf1838632180"
+        }
+      ],
+      "median_agent_seconds": 50.825975
+    }
+  },
+  "validation": {
+    "initial_oracle": {
+      "job": "jobs/pagination-oracle-20261106",
+      "trials": [
+        {
+          "trial": "paginate-state-module__ywZYtDJ",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "0b5da44439e4207e37a6172ca7790e5931ff02d86756435cc05d962f73d33d5c",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 1.0,
+            "members_separated": 1.0
+          },
+          "usage": {
+            "n_input_tokens": null,
+            "n_cache_tokens": null,
+            "n_output_tokens": null,
+            "cost_usd": null
+          },
+          "agent_seconds": 0.168025,
+          "submitted_state_sha256": "1ca5bcc482018fdcdc7c2afd73f928ad607997b5068bf9b5515056befed648c1"
+        }
+      ],
+      "median_agent_seconds": 0.168025
+    },
+    "corrected_oracle": {
+      "job": "jobs/pagination-oracle-v11-20261106",
+      "trials": [
+        {
+          "trial": "paginate-state-module__iaDYxuu",
+          "task": "silentiumsi/code-writing-paginate-state-module",
+          "task_checksum": "8f90abacc9cacae749232ac71f0fb415801ba250aa1e5ef8a06e3806c80cc646",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "types_valid": 1.0,
+            "public_types_preserved": 1.0,
+            "pagination_contract": 1.0,
+            "declarations_separated": 1.0,
+            "members_separated": 1.0
+          },
+          "usage": {
+            "n_input_tokens": null,
+            "n_cache_tokens": null,
+            "n_output_tokens": null,
+            "cost_usd": null
+          },
+          "agent_seconds": 0.167369,
+          "submitted_state_sha256": "bcb65c07fc31cad8192fbf9bc9a57b7e38a74674d8853cd8a2510ceb71ebb094"
+        }
+      ],
+      "median_agent_seconds": 0.167369
+    },
+    "controls": {
+      "job": "jobs/pagination-controls-20261106",
+      "trials": [
+        {
+          "trial": "format-go__5hEdB5L",
+          "task": "silentiumsi/code-writing-format-go",
+          "task_checksum": "c4a2dda53cb52c9aa0c29050f1d27a65c95935fc16e5eb0ed8e6b9457b1a1e11",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 1.0,
+            "immediate_error_check_kept_together": 1.0
+          },
+          "skill_read_in_trace": true,
+          "usage": {
+            "n_input_tokens": 61682,
+            "n_cache_tokens": 53632,
+            "n_output_tokens": 847,
+            "cost_usd": 0.0149666
+          },
+          "agent_seconds": 23.968943
+        },
+        {
+          "trial": "format-go__SpNSKEh",
+          "task": "silentiumsi/code-writing-format-go",
+          "task_checksum": "c4a2dda53cb52c9aa0c29050f1d27a65c95935fc16e5eb0ed8e6b9457b1a1e11",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 1.0,
+            "immediate_error_check_kept_together": 1.0
+          },
+          "skill_read_in_trace": true,
+          "usage": {
+            "n_input_tokens": 61341,
+            "n_cache_tokens": 58880,
+            "n_output_tokens": 694,
+            "cost_usd": 0.008875000000000001
+          },
+          "agent_seconds": 21.567185
+        },
+        {
+          "trial": "format-go__pZLCvmP",
+          "task": "silentiumsi/code-writing-format-go",
+          "task_checksum": "c4a2dda53cb52c9aa0c29050f1d27a65c95935fc16e5eb0ed8e6b9457b1a1e11",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 1.0,
+            "immediate_error_check_kept_together": 1.0
+          },
+          "skill_read_in_trace": true,
+          "usage": {
+            "n_input_tokens": 61474,
+            "n_cache_tokens": 57856,
+            "n_output_tokens": 718,
+            "cost_usd": 0.010100799999999998
+          },
+          "agent_seconds": 26.637636
+        },
+        {
+          "trial": "format-state-module__BxVZfbC",
+          "task": "silentiumsi/code-writing-format-state-module",
+          "task_checksum": "58c907606f991e47780de8868afc496d4d5fc69cda880bf496ff565cd2992380",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "declarations_separated": 1.0,
+            "members_separated": 1.0,
+            "independent_steps_separated": 1.0,
+            "related_statements_together": 1.0
+          },
+          "skill_read_in_trace": true,
+          "usage": {
+            "n_input_tokens": 62034,
+            "n_cache_tokens": 50560,
+            "n_output_tokens": 888,
+            "cost_usd": 0.018442
+          },
+          "agent_seconds": 27.276013,
+          "submitted_state_sha256": "645a6049bebc5caeba187f8f02c8661edbdd2271d4e86de1b9a8a228f9a66154"
+        },
+        {
+          "trial": "format-state-module__HHtsP9s",
+          "task": "silentiumsi/code-writing-format-state-module",
+          "task_checksum": "58c907606f991e47780de8868afc496d4d5fc69cda880bf496ff565cd2992380",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "declarations_separated": 1.0,
+            "members_separated": 1.0,
+            "independent_steps_separated": 1.0,
+            "related_statements_together": 1.0
+          },
+          "skill_read_in_trace": true,
+          "usage": {
+            "n_input_tokens": 62260,
+            "n_cache_tokens": 54528,
+            "n_output_tokens": 853,
+            "cost_usd": 0.0147234
+          },
+          "agent_seconds": 26.405515,
+          "submitted_state_sha256": "645a6049bebc5caeba187f8f02c8661edbdd2271d4e86de1b9a8a228f9a66154"
+        },
+        {
+          "trial": "format-state-module__d7R5o6x",
+          "task": "silentiumsi/code-writing-format-state-module",
+          "task_checksum": "58c907606f991e47780de8868afc496d4d5fc69cda880bf496ff565cd2992380",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "declarations_separated": 1.0,
+            "members_separated": 1.0,
+            "independent_steps_separated": 1.0,
+            "related_statements_together": 1.0
+          },
+          "skill_read_in_trace": true,
+          "usage": {
+            "n_input_tokens": 79945,
+            "n_cache_tokens": 70016,
+            "n_output_tokens": 1140,
+            "cost_usd": 0.0191298
+          },
+          "agent_seconds": 37.060573,
+          "submitted_state_sha256": "645a6049bebc5caeba187f8f02c8661edbdd2271d4e86de1b9a8a228f9a66154"
+        },
+        {
+          "trial": "format-typescript__Efc3HRL",
+          "task": "silentiumsi/code-writing-format-typescript",
+          "task_checksum": "8920a5fb73671651b0069a6d2b59b4d7ad8c4991cf9507ea817ce95f5aba64ad",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 1.0,
+            "initialization_kept_with_assignment": 1.0
+          },
+          "skill_read_in_trace": true,
+          "usage": {
+            "n_input_tokens": 60629,
+            "n_cache_tokens": 58752,
+            "n_output_tokens": 491,
+            "cost_usd": 0.0072696
+          },
+          "agent_seconds": 19.0466
+        },
+        {
+          "trial": "format-typescript__GDQGetD",
+          "task": "silentiumsi/code-writing-format-typescript",
+          "task_checksum": "8920a5fb73671651b0069a6d2b59b4d7ad8c4991cf9507ea817ce95f5aba64ad",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 1.0,
+            "initialization_kept_with_assignment": 1.0
+          },
+          "skill_read_in_trace": true,
+          "usage": {
+            "n_input_tokens": 60680,
+            "n_cache_tokens": 58496,
+            "n_output_tokens": 601,
+            "cost_usd": 0.0081138
+          },
+          "agent_seconds": 20.911002
+        },
+        {
+          "trial": "format-typescript__Ui2GAAL",
+          "task": "silentiumsi/code-writing-format-typescript",
+          "task_checksum": "8920a5fb73671651b0069a6d2b59b4d7ad8c4991cf9507ea817ce95f5aba64ad",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "syntax_preserved": 1.0,
+            "other_files_preserved": 1.0,
+            "independent_steps_separated": 1.0,
+            "initialization_kept_with_assignment": 1.0
+          },
+          "skill_read_in_trace": true,
+          "usage": {
+            "n_input_tokens": 77099,
+            "n_cache_tokens": 71296,
+            "n_output_tokens": 729,
+            "cost_usd": 0.0130128
+          },
+          "agent_seconds": 24.603444
+        },
+        {
+          "trial": "select-columns__4qfNKqg",
+          "task": "silentiumsi/code-writing-select-columns",
+          "task_checksum": "1338b2c2d82e8ddf12ab478f1043fb0752affed737fa57c4709f94feaa7aee50",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "compatibility": 1.0,
+            "selected_exports": 1.0,
+            "boundary_errors": 1.0,
+            "shared_policy": 1.0,
+            "behavioral_regression_tests": 1.0,
+            "fixture_integrity": 1.0
+          },
+          "skill_read_in_trace": true,
+          "usage": {
+            "n_input_tokens": 79979,
+            "n_cache_tokens": 72064,
+            "n_output_tokens": 1187,
+            "cost_usd": 0.017453200000000002
+          },
+          "agent_seconds": 35.838566
+        },
+        {
+          "trial": "select-columns__K4mzBW3",
+          "task": "silentiumsi/code-writing-select-columns",
+          "task_checksum": "1338b2c2d82e8ddf12ab478f1043fb0752affed737fa57c4709f94feaa7aee50",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "compatibility": 1.0,
+            "selected_exports": 1.0,
+            "boundary_errors": 1.0,
+            "shared_policy": 1.0,
+            "behavioral_regression_tests": 1.0,
+            "fixture_integrity": 1.0
+          },
+          "skill_read_in_trace": true,
+          "usage": {
+            "n_input_tokens": 82511,
+            "n_cache_tokens": 71040,
+            "n_output_tokens": 1366,
+            "cost_usd": 0.021853
+          },
+          "agent_seconds": 33.822928
+        },
+        {
+          "trial": "select-columns__rsvYCi5",
+          "task": "silentiumsi/code-writing-select-columns",
+          "task_checksum": "1338b2c2d82e8ddf12ab478f1043fb0752affed737fa57c4709f94feaa7aee50",
+          "reward": {
+            "reward": 1.0
+          },
+          "criteria": {
+            "compatibility": 1.0,
+            "selected_exports": 1.0,
+            "boundary_errors": 1.0,
+            "shared_policy": 1.0,
+            "behavioral_regression_tests": 1.0,
+            "fixture_integrity": 1.0
+          },
+          "skill_read_in_trace": true,
+          "usage": {
+            "n_input_tokens": 80146,
+            "n_cache_tokens": 66048,
+            "n_output_tokens": 1284,
+            "cost_usd": 0.023820400000000002
+          },
+          "agent_seconds": 36.742869
+        }
+      ],
+      "median_agent_seconds": 26.5215755
+    }
+  },
+  "grader_revision": {
+    "initial": "1.0.0",
+    "corrected": "1.1.0",
+    "reason": "Add missing checks for opaque empty-string cursors and exported names; fix truthy cursor guard in oracle. Task instruction and starting state unchanged.",
+    "comparison_policy": "All four conditions rerun against corrected grader; initial attempts never pooled with corrected results."
+  },
+  "valid_trials": 35,
+  "infrastructure_errors": 0,
+  "timeouts": 0,
+  "exclusions": 0,
+  "behavioral_retries": 0
+}

@@ -41,9 +41,11 @@ if (target.generation !== generation) return;
 target.data = next;
 ```
 
-Before finishing, read changed code at both module and function scope and correct
-its grouping. For formatting-only work, preserve statements, identifiers,
-literals, comments, and behavior.
+Before finishing, inspect each edited module as a whole and correct its
+declaration and class-member spacing, including boundaries beside unchanged
+definitions. Check logical paragraphs in changed functions. Honor explicit
+limits on formatting scope. For formatting-only work, preserve statements,
+identifiers, literals, comments, and behavior.
 
 ## Reuse Existing Decisions
 

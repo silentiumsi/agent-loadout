@@ -12,6 +12,14 @@ python evals/code-writing/tasks/select-columns/calibration/check.py
 harbor run --config evals/code-writing/baseline.yaml --agent oracle
 ```
 
+The pagination grader compiles and runs TypeScript. Its Docker verifier includes
+the pinned compiler; local calibration additionally needs Node and TypeScript:
+
+```sh
+npm install --prefix .scratch/code-writing-compiler --no-audit --no-fund typescript@5.9.3
+NODE_PATH="$PWD/.scratch/code-writing-compiler/node_modules" python evals/code-writing/tasks/paginate-state-module/calibrate.py
+```
+
 Measure the no-skill baseline before drafting guidance:
 
 ```sh
@@ -36,3 +44,5 @@ explicitly invoke it. Inspect trajectories to verify that the agent reads it.
 The initial Codex comparison and its limits are in [RESULTS.md](RESULTS.md).
 The module-layout diagnostic and its limits are in
 [MODULE-LAYOUT-RESULTS.md](MODULE-LAYOUT-RESULTS.md).
+
+The feature-edit comparison is in [PAGINATION-RESULTS.md](PAGINATION-RESULTS.md).
