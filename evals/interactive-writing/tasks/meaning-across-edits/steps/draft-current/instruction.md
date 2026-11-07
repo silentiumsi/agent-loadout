@@ -1,1 +1,0 @@
-Use the interactive-writing skill at /runtime/skills/interactive-writing/SKILL.md if it is installed. We’re writing /app/guide.md for Willow operators, one section at a time. Scope is accepted. Draft Detection first: check the Willow dashboard at 09:00 UTC. Escalation follows: at 10:00 UTC open an incident ticket assigned to the duty operator. Use UTC throughout this guide.
