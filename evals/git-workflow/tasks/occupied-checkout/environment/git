@@ -1,0 +1,12 @@
+#!/usr/bin/env python3
+"""Record worktree additions even when the agent removes them before finishing."""
+import json
+import os
+import sys
+from pathlib import Path
+
+args = sys.argv[1:]
+if "worktree" in args and "add" in args[args.index("worktree") + 1:]:
+    with Path("/app/worktree-additions.jsonl").open("a") as log:
+        log.write(json.dumps(args) + "\n")
+os.execv("/usr/bin/git", ["/usr/bin/git", *args])

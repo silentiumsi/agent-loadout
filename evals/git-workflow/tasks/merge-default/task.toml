@@ -1,0 +1,16 @@
+schema_version = "1.4"
+artifacts = ["/app"]
+[task]
+name = "silentiumsi/git-workflow-merge-default"
+version = "1.0.0"
+description = "Use squash when explicitly asked to merge a PR without a method override."
+[agent]
+timeout_sec = 600.0
+[verifier]
+timeout_sec = 120.0
+environment_mode = "separate"
+[verifier.environment]
+network_mode = "no-network"
+[environment]
+network_mode = "public"
+build_timeout_sec = 600.0

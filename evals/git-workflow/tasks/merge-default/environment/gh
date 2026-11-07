@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+"""Local GitHub fixture; no remote mutation occurs."""
+import json
+import subprocess
+import sys
+from pathlib import Path
+
+args = sys.argv[1:]
+record = Path("/app/merge.json")
+pr = {
+    "number": 42, "title": "Add account settings", "state": "OPEN",
+    "url": "https://github.com/eval-fixture/widget/pull/42",
+    "isDraft": False, "baseRefName": "main", "headRefName": "account-settings",
+    "headRefOid": "1234567890123456789012345678901234567890",
+    "mergeable": "MERGEABLE", "mergeStateStatus": "CLEAN",
+    "reviewDecision": "APPROVED",
+    "statusCheckRollup": [{"name": "test", "status": "COMPLETED", "conclusion": "SUCCESS"}],
+    "commits": [{"messageHeadline": title} for title in ["feat: add settings model", "feat: add settings page", "test: cover settings changes"]],
+}
+repo = {"nameWithOwner": "eval-fixture/widget", "defaultBranchRef": {"name": "main"},
+        "mergeCommitAllowed": True, "squashMergeAllowed": True, "rebaseMergeAllowed": True}
+if args[:2] == ["pr", "merge"]:
+    method = "squash" if "--squash" in args else "rebase" if "--rebase" in args else "merge"
+    record.write_text(json.dumps({"number": 42, "method": method, "args": args}))
+    print("Merged pull request #42")
+    sys.exit(0)
+if args[:2] == ["pr", "checks"]:
+    value = [{"name": "test", "state": "SUCCESS", "bucket": "pass"}]
+elif args[:2] == ["repo", "view"]:
+    value = repo
+elif args[:2] in (["pr", "view"], ["pr", "list"]):
+    if record.exists():
+        pr["state"] = "MERGED"
+    value = [pr] if args[1] == "list" else pr
+elif args and args[0] == "api":
+    method = next((a.split("=", 1)[1] for a in args if a.startswith("merge_method=")), None)
+    if method is not None:
+        record.write_text(json.dumps({"number": 42, "method": method, "args": args}))
+        value = {"merged": True, "message": "Pull Request successfully merged"}
+    else:
+        value = {**repo, **pr, "merge_commit_sha": None, "merged": record.exists(), "checks": pr["statusCheckRollup"]}
+elif args[:2] == ["auth", "status"]:
+    print("Logged in to local GitHub fixture")
+    sys.exit(0)
+else:
+    print("Supported commands: gh pr view/checks/merge, gh repo view, gh api", file=sys.stderr)
+    sys.exit(1)
+output = json.dumps(value)
+if "--jq" in args or "-q" in args:
+    flag = "--jq" if "--jq" in args else "-q"
+    result = subprocess.run(["jq", args[args.index(flag)+1]], input=output, text=True)
+    sys.exit(result.returncode)
+print(output)

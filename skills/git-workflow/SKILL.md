@@ -11,7 +11,7 @@ Follow repository rules over these defaults. Inspect the branch, working tree, a
 
 Use short-lived task branches from current trunk and integrate frequently. Continue existing tasks on their branches; branch from another task only for deliberate dependencies. Work directly on trunk only when repository rules and the task permit it.
 
-Use a separate branch and worktree for concurrent work or when the working directory is occupied. Otherwise, a branch is sufficient. Preserve unrelated changes in place rather than stashing or moving them for convenience.
+Never create a worktree unless the user explicitly asks for one. Leave worktree setup to the user by default; concurrent work or an occupied working directory does not authorize creating one. Use the current checkout and preserve unrelated changes in place rather than stashing or moving them for convenience. If those changes prevent safe progress, explain the blocker and let the user arrange the working context.
 
 Adapt review terminology, CI, and merge controls to the Git host.
 
@@ -63,11 +63,13 @@ Keep the title and description aligned with the current diff. Address review fee
 
 ## Keep integration safe and current
 
-Integrate current trunk frequently; rerun affected checks after integration and conflict resolution. Rebase private branches when useful; coordinate before rewriting shared history. Preserve coherent commits where repository merge policy permits.
+Integrate current trunk frequently; rerun affected checks after integration and conflict resolution. Rebase private branches when useful; coordinate before rewriting shared history.
 
 All required checks must pass on the revision being merged, with required reviews satisfied. Enforce this through the host’s CI and merge controls. Flag missing enforcement; change workflows or repository settings only within task authorization.
 
 Never merge without an explicit user request, even when checks and reviews pass. Otherwise, leave merging to the user through the host’s UI.
+
+When explicitly asked to merge, squash the PR's commits by default unless the user specifies another method or repository rules require one.
 
 ## Finish and clean up
 
