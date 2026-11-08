@@ -1,69 +1,54 @@
 ---
 name: ground
-description: Work out what to build before building it, ending in one specification an agent can build from without further decisions. Use when the user invokes ground, wants to plan an initiative or project up front, doesn't yet know the depth of what they're building, or wants unknowns surfaced before implementation starts.
+description: Work out what to build before building it by interviewing the user, ending in ground/product.md and ground/design.md: a project map the user can hold in their head plus the details downstream work needs. Use when the user invokes ground, wants to plan a new project or large idea up front, doesn't yet know the depth of what they're building, or wants unknowns surfaced before implementation starts.
 ---
 
 # Ground
 
-The goal is a **spec** the user can read and understand, and that a junior engineer or an agent could build from to deliver exactly what was agreed, with no unknowns, scope creep, or surprises, plus a **slice file** that breaks the spec into buildable pieces. The user often doesn't yet know the depth of what they're building. Bring the unknowns out and let them decide; a decision enters the spec only after the user confirms it.
+The goal is for the user to understand what is being built, why, what its main pieces are, and how they connect, with enough detail under each piece that an agent or engineer can start from it. The user is the decider: a decision enters the files only after they confirm it. Ground works above change-level specs: stop short of scenario-level behavior (GIVEN/WHEN/THEN), which downstream work writes per change. Acceptance checks are one-line observable outcomes. Do not create tickets or code.
 
-**Done** means every slice is `ready` and coverage holds in both directions: every spec part is built by at least one slice, and no slice builds something the spec doesn't describe. Report that and stop. Do not create tickets, proposals, or code, and do not run a build loop. Otherwise stop when the user does.
+**Done** means every piece has been settled (below) and the user can explain the project back, which you check by asking them to and comparing their account with the map. A gap is either an unclear map or a misunderstanding; say which and fix it. Then stop.
 
 ## Files
 
-Start by reading any existing `spec.md` and `slices.md` in `ground/`, or the folder the user names. Create either missing file immediately, before research or the first interview. Preserve existing content when resuming. File creation and routine saves need no separate user approval; confirmation applies to decisions.
+Read any existing `ground/` (or the folder the user names) and the repository first. Treat them as evidence, not decisions. Before research or the first question, create `ground/product.md` and `ground/design.md` if they are missing; saving needs no approval. Seed `product.md` with the user's intent and open questions, and `design.md` with a line saying design follows each piece's product section.
 
-Seed `spec.md` with the user's intent, draft Foundations, and open Unknowns. Seed `slices.md` with an empty fenced YAML list (`[]`) and a Mermaid diagram indicating that no slices are defined yet. Leave unanswered details open; add draft parts and slices as evidence emerges.
+Each file opens with the **map**: a short summary, then the main pieces and how they connect. The two top-level files must answer what, why, which pieces, and how they connect without the reader opening anything else. Use a diagram or table wherever it shows something better than prose (Mermaid for flow and structure, ASCII or a mockup for layout); label unconfirmed items in it `(proposed)` too. The map must show how the pieces connect (what each shares with or needs from the others), not only list them. Show the project as a few large pieces: group features that share data or change together, and fold small ones into the piece they belong to. If your list of pieces mirrors the user's list of features, regroup. Detail follows in one section per piece.
 
-- `spec.md`: one coherent document organized by what is being built. Open with a short prose overview of the problem, who the product serves, and how it works. Follow with **Foundations** (stack, cross-cutting decisions, shared contracts, glossary), then the system's parts, then **Unknowns**.
-- `slices.md`: a prose explanation of the build sequence and why the boundaries and dependencies make sense, followed by a fenced YAML list of slices and a Mermaid diagram of them that you regenerate each round and never hand-edit. Each slice has `id`, `title`, `depends_on`, `status`, a one-line summary, the spec parts it builds, and the decision ids it cites.
+- **Product section:** what the piece does for its users and why. Every product section has all four parts; write "None" only for open questions:
 
-Each part explains its goal and scope, how it behaves, how it interacts with other parts, and how it will be built. Weave confirmed decisions, their reasons, and supporting evidence into that explanation with stable decision ids. Include relevant design references and testable acceptance criteria. These are coverage requirements, not a repeated field template. Parts refer to Foundations and don't repeat them.
+  ```
+  ## <Piece>
+  <what it does and why>
+  **Decisions:** <each choice with its reason>
+  **Acceptance checks:** <at least one observable outcome; mark it (proposed) if unconfirmed>
+  **Open questions:** <questions about the piece itself, or None>
+  ```
 
-State lives in these files from the start. Keep them current as research and answers arrive; record proposals as open unknowns until the user confirms them.
+  Product holds only what a user can observe without knowing how it is built. Anything named after an implementation goes in design instead: stack, libraries, data model, file layout, config or wire formats, command syntax and flags, hashes, merge or conflict algorithms, git operations. "Reads one Markdown table and writes CSV" is product; "uses Python's standard library" and "last-writer-wins" are design. A piece whose product section would need such a term to be specific stays less specific, or the term goes to design.
+- **Design section:** write nothing for a piece until its product section says "Open questions: None". Then write only what a builder could not infer from that product section and the conventions of the stack: flows, structure or mockups. Design adds no behavior a user could observe; if one is needed, put it in product first. Before saving a design section, reread the brief's constraints and the piece's product section (a runtime dependency, flag, or format they rule out stays out), and mark every design choice the user has not confirmed `(proposed)`. Do not describe the product section ("leaves no choice open"); write only the design. Stack choices, shared contracts and other cross-cutting technical decisions go in the top-level `design.md`; they belong to no piece, so they are not gated.
 
-Statuses: a slice or spec part starts `draft`; a slice becomes `ready` by passing the readiness test; a `ready` slice becomes `stale` when something it cites changes. Spec parts stay `draft` until every slice that builds them is `ready`.
+**Promotion.** When a piece cannot be understood from its section alone, or has pieces of its own worth mapping, propose moving it to `ground/areas/<name>/` with its own `product.md` and `design.md`, each opening with its own map. After the user agrees, move the detail there; the parent keeps the piece's summary, its place on the map, and a link to `areas/<name>`. Promoted areas can nest the same way. Propose new pieces and promotions among a round's questions and wait. Until the user agrees, create no `areas/` folder.
 
-## Writing for the reader
+## What the files hold
 
-Use connected prose for the spec, slice explanations, research conclusions, and round summaries. Explain behavior and its consequences with concrete examples so the user can assess the plan without reconstructing it from decision ids, terse field labels, or conversation history. Keep technical precision and traceability in the explanation; cite evidence where it supports a decision rather than making a detached decision ledger carry the narrative.
+The files describe the project as currently understood; they outlive this session. Edit in place; git is the history. Never write decision ids, round numbers, or who confirmed what, and never mention spikes or how something was learned: write "Hashing the files git lists gives the same value on every checkout, so evidence is tied to that hash", not "Spike result: hashing ... is stable". A resolved question becomes a plain statement with its reason. Open questions sit in the section they concern, state the question itself (never "see round 2"), and are deleted when resolved.
 
-Use lists for discrete items such as acceptance checks or open questions, and tables when the reader needs to compare values or options. Keep YAML for structured slice records and code blocks for actual configuration or command examples. Choose headings that describe the subject; avoid giving every part the same sequence of “Goal / Scope / Inputs / Outputs / Build approach” labels.
-
-For example, explain: “The CLI reads the target branch's policy so a pull request cannot weaken its own verification requirements (D05). Policy edits take effect after merge.” This conveys both the behavior and its reason without requiring a separate decision lookup.
-
-In the interview, keep questions individually answerable and give each a recommendation as `grilling` requires. Introduce the choices in plain prose and explain their implications. Summarize confirmed changes in a short connected explanation instead of repeating the decision ledger or slice metadata each round.
-
-## Existing work
-
-Before the first interview, read what already exists: the code, repo docs, existing specs, and any earlier planning notes. If the repo refers to planning material it doesn't contain, ask the user once where it lives. Treat all of it as evidence, not as confirmed decisions: put a decision in the spec only after the user confirms it. List built parts under Foundations as existing context; they get no slices.
+Anything you wrote that the user has not confirmed carries `(proposed)` until they confirm it. Unmarked prose must come from the user, the repository, or a recommendation they accepted: before saving, check each new unmarked sentence against that, and mark or cut every detail you added yourself, including plausible specifics and consequences you inferred. Never settle something the user said is undecided, and do not substitute an interim answer; list it as an open question.
 
 ## Each round
 
-Interview with the `grilling` skill: ask everything you can ask now, each with a recommendation, then wait for answers. Ask about the project, never about how this skill works. Work on the first of these that applies:
+Each round: ask, wait, then update the files with the answers and save before you summarize. Interview with the `grilling` skill: ask everything you can ask now, each with a recommendation. Ask about the project; do not ask the user how the process should run. Stack and feasibility questions come first. Then work one piece at a time, product before design: a design question is not askable until that piece's product questions are answered, so keep it out of any round that still has product ones. If design shows a product section is wrong, reopen it. End each round by naming the sections you changed.
 
-1. A risky unknown with no evidence.
-2. A slice or spec part still in `draft`.
-3. A slice that is `stale`.
+**Risk.** An unknown is risky if it is new to you or the user, depends on an unproven external system, is expensive to undo, or has other pieces depending on it. Say why; the user can overrule. Go deep on risk and skim the rest.
 
-Stack and feasibility questions always come before designs. After the interview, update the files and run the readiness test on every `draft` or `stale` slice whose parts have no open unknowns.
+**Evidence.** A risky decision counts as made only with evidence such as a spike. Propose the spike, naming the question and what result would change the decision, and wait for a yes. Run it in a throwaway directory outside the repo. State what you learned in the files as a plain fact (evidence needs no marker); the decision it implies stays `(proposed)` until the user confirms it. If the user declines the spike, or decides a risky point without one, state the assumption plainly as a known risk.
 
-**Unknowns.** Propose a first list of areas to probe for this project, from the intent. The user strikes and adds. Keep extending it whenever you find something new to decide. Each item is `open` or `resolved`, and a resolved item links to its evidence.
+## Settling a piece
 
-**Risk.** Flag an unknown as risky if it is new to the user or you, depends on an unproven external system or library, is expensive to undo, or has other parts depending on it. Say why; the user can overrule. Depth follows risk: go deep there, skim the rest.
+A piece is settled when it has no open questions, passes both checks below, and the user has read it and said it is right. Before asking them to read it, run two checks with fresh-context subagents before asking the user to read it:
 
-**Evidence.** A risky decision counts as made only with evidence, such as a spike result. Propose the spike and wait for a yes, naming the exact question and what result would change the decision. Run it in a throwaway directory outside the repo. Record the question, result, and conclusion under the decision it supports. If the user declines a spike, record the decision as an accepted risk, labeled so.
+- **Readiness:** give it only that piece's files and the top-level map, never the conversation. It lists every question it would need answered and every assumption it would have to make, where the answer would change what gets built. Both lists must be empty: fix what you can, take the rest to the user, then run it again.
+- **Invention audit:** give it the files and the conversation. It lists every settled claim with no basis in what the user said or accepted, or in the repository. Fix or mark each, then rerun readiness if the fix changed what gets built.
 
-**Designs.** Each mockup or diagram records how it is built and which decision ids it relies on.
-
-**Slices.** A slice is the largest unit one agent session can build and verify, with its own testable acceptance criteria; split anything bigger. Build and revise the slice file as you learn.
-
-**Staleness.** When a decision changes, mark `stale` each slice that cites it and everything downstream.
-
-## Readiness test
-
-Give a fresh-context subagent only the spec parts the slice points to, Foundations, and the decisions cited, never the conversation. Ask it to list every question it would need answered and every assumption it would have to make, limited to those whose answer would change what gets built. The slice becomes `ready` only when both lists are empty. Put anything it lists into the spec as an open item and take it to the user.
-
-## Closing a round
-
-Save the updated spec and slices before asking the next round of questions or ending the turn. Then summarize what changed in the spec, the slices, and the unknowns, and which slices went stale. Do not wait for the user to request files or approve routine saves.
+Then tell the user which file to read and wait for their go-ahead.

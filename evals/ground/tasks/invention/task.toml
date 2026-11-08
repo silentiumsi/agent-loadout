@@ -1,0 +1,58 @@
+schema_version = "1.4"
+artifacts = ["/app", "/logs/agent"]
+multi_step_reward_strategy = "mean"
+
+[task]
+name = "silentiumsi/ground-invention"
+version = "1.0.0"
+description = "Keep a question the user left undecided out of settled prose."
+
+[agent]
+timeout_sec = 900.0
+
+[verifier]
+environment_mode = "separate"
+timeout_sec = 900.0
+
+[verifier.env]
+CODEX_AUTH_JSON = "${CODEX_AUTH_JSON}"
+REWARDKIT_FORCE_SUBSCRIPTION = "1"
+
+[verifier.environment]
+network_mode = "public"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 600.0
+
+[[steps]]
+name = "brief"
+[steps.verifier.env]
+GROUND_STAGE = "brief"
+GROUND_DIAGRAM = "0"
+GROUND_NO_AREAS_AFTER_BRIEF = "0"
+GROUND_NO_AREAS_EVER = "0"
+
+[[steps]]
+name = "first-answers"
+[steps.verifier.env]
+GROUND_STAGE = "middle"
+GROUND_DIAGRAM = "0"
+GROUND_NO_AREAS_AFTER_BRIEF = "0"
+GROUND_NO_AREAS_EVER = "0"
+
+[[steps]]
+name = "undecided"
+[steps.verifier.env]
+GROUND_STAGE = "middle"
+GROUND_DIAGRAM = "0"
+GROUND_NO_AREAS_AFTER_BRIEF = "0"
+GROUND_NO_AREAS_EVER = "0"
+
+[[steps]]
+name = "rest"
+[steps.verifier.env]
+GROUND_STAGE = "final"
+GROUND_DIAGRAM = "0"
+GROUND_NO_AREAS_AFTER_BRIEF = "0"
+GROUND_NO_AREAS_EVER = "0"

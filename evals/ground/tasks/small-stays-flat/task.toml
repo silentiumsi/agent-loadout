@@ -1,0 +1,50 @@
+schema_version = "1.4"
+artifacts = ["/app", "/logs/agent"]
+multi_step_reward_strategy = "mean"
+
+[task]
+name = "silentiumsi/ground-small-stays-flat"
+version = "1.0.0"
+description = "Keep a small project as one pair of files with no sub-structure."
+
+[agent]
+timeout_sec = 900.0
+
+[verifier]
+environment_mode = "separate"
+timeout_sec = 900.0
+
+[verifier.env]
+CODEX_AUTH_JSON = "${CODEX_AUTH_JSON}"
+REWARDKIT_FORCE_SUBSCRIPTION = "1"
+
+[verifier.environment]
+network_mode = "public"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 600.0
+
+[[steps]]
+name = "brief"
+[steps.verifier.env]
+GROUND_STAGE = "brief"
+GROUND_DIAGRAM = "0"
+GROUND_NO_AREAS_AFTER_BRIEF = "0"
+GROUND_NO_AREAS_EVER = "1"
+
+[[steps]]
+name = "first-answers"
+[steps.verifier.env]
+GROUND_STAGE = "middle"
+GROUND_DIAGRAM = "0"
+GROUND_NO_AREAS_AFTER_BRIEF = "0"
+GROUND_NO_AREAS_EVER = "1"
+
+[[steps]]
+name = "second-answers"
+[steps.verifier.env]
+GROUND_STAGE = "final"
+GROUND_DIAGRAM = "0"
+GROUND_NO_AREAS_AFTER_BRIEF = "0"
+GROUND_NO_AREAS_EVER = "1"

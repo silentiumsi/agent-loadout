@@ -1,0 +1,21 @@
+tasks:
+  - path: evals/ground/tasks/verification-cli
+  - path: evals/ground/tasks/invention
+  - path: evals/ground/tasks/monolith
+  - path: evals/ground/tasks/small-stays-flat
+agents:
+  - name: codex
+    model_name: openai/gpt-6.1-terra
+    resume_trajectory: true
+    kwargs:
+      version: 0.166.0
+    env:
+      CODEX_FORCE_AUTH_JSON: "1"
+  - name: claude-code
+    model_name: anthropic/claude-sonnet-5-5
+    resume_trajectory: true
+    kwargs:
+      version: 2.1.318
+    env:
+      CLAUDE_FORCE_OAUTH: "1"
+n_concurrent_trials: 16

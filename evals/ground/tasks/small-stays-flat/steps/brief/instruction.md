@@ -1,0 +1,1 @@
+Use the ground skill at /runtime/skills/ground/SKILL.md if it is installed. The project directory is /app. I want a small command-line tool called tabcsv that reads one Markdown table from standard input and writes it as CSV to standard output. It should handle alignment rows and escaped pipes. No config file, and no flags except --delimiter.

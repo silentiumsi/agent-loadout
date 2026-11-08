@@ -1,0 +1,58 @@
+schema_version = "1.4"
+artifacts = ["/app", "/logs/agent"]
+multi_step_reward_strategy = "mean"
+
+[task]
+name = "silentiumsi/ground-monolith"
+version = "1.0.0"
+description = "Show a large system as a few big pieces and create sub-structure only after approval."
+
+[agent]
+timeout_sec = 900.0
+
+[verifier]
+environment_mode = "separate"
+timeout_sec = 900.0
+
+[verifier.env]
+CODEX_AUTH_JSON = "${CODEX_AUTH_JSON}"
+REWARDKIT_FORCE_SUBSCRIPTION = "1"
+
+[verifier.environment]
+network_mode = "public"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 600.0
+
+[[steps]]
+name = "brief"
+[steps.verifier.env]
+GROUND_STAGE = "brief"
+GROUND_DIAGRAM = "1"
+GROUND_NO_AREAS_AFTER_BRIEF = "1"
+GROUND_NO_AREAS_EVER = "0"
+
+[[steps]]
+name = "first-answers"
+[steps.verifier.env]
+GROUND_STAGE = "middle"
+GROUND_DIAGRAM = "1"
+GROUND_NO_AREAS_AFTER_BRIEF = "1"
+GROUND_NO_AREAS_EVER = "0"
+
+[[steps]]
+name = "second-answers"
+[steps.verifier.env]
+GROUND_STAGE = "middle"
+GROUND_DIAGRAM = "1"
+GROUND_NO_AREAS_AFTER_BRIEF = "1"
+GROUND_NO_AREAS_EVER = "0"
+
+[[steps]]
+name = "third-answers"
+[steps.verifier.env]
+GROUND_STAGE = "final"
+GROUND_DIAGRAM = "1"
+GROUND_NO_AREAS_AFTER_BRIEF = "1"
+GROUND_NO_AREAS_EVER = "0"

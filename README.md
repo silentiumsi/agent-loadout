@@ -58,7 +58,7 @@ Restart your client and begin a new session after installing or updating.
 | [evaluating-skills](skills/evaluating-skills/SKILL.md) | Designs and reviews behavioral evaluations for agent skills. |
 | [git-workflow](skills/git-workflow/SKILL.md) | Guides branches, commits, worktrees, and review requests. |
 | [grilling](skills/grilling/SKILL.md) | Tests ideas and decisions through rounds of concrete questions. |
-| [ground](skills/ground/SKILL.md) | Surfaces the unknowns before building and produces one spec an agent can build from, plus a dependency breakdown. |
+| [ground](skills/ground/SKILL.md) | Plans a new project or large idea up front, producing a project map you can hold in your head and the details that matter downstream, kept in a product file and a design file that split into areas as the project grows. |
 | [obsidian](skills/obsidian/SKILL.md) | Finds, reads, and maintains notes in your local Obsidian vaults. |
 | [scratch](skills/scratch/SKILL.md) | Keeps disposable task files in a locally ignored `.scratch/` directory. |
 | [writing-for-agents](skills/writing-for-agents/SKILL.md) | Writes instructions agents read: AGENTS.md, slash commands, subagent prompts, handoff notes, and skill bodies. |
